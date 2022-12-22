@@ -1,0 +1,60 @@
+.commonClass1{
+    background-color: white;
+    width: 60%;
+    margin: auto;
+    overflow: hidden;
+    padding-top: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+
+}
+.commonClass{
+    background-color: ;
+    width: 60%;
+    margin: auto;
+    overflow: hidden;
+    padding-top: 2%;
+
+}
+header{
+    width: 80%;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(8.jpg);
+}
+
+
+.innerDiv{
+    padding-top: 10px;
+    margin-left: 50px;   
+}
+
+
+button{
+    background-color: #7A7CA4;
+    color: white;
+    padding: 14px; 
+    margin: 8px; 
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100px;
+    width: 30%;
+    
+}
+
+input[type=text],[type=date],[type=email],textarea{
+    padding: 8px;
+    width: 80%;
+    border-radius: 5px ;
+    border: 1px;;
+    border-color: black;
+    
+}
+
+.innetDiv.button:hover{
+    background-color:#7A7CA4;
+     
+}

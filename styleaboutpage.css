@@ -1,0 +1,18 @@
+.image-section{
+	background: url(9.jpg);
+	width: 50%;
+	position: absolute;
+	left: 0px;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+ }
+
+ .content-section{
+	padding-left: 20px;
+	margin-left: 20px;
+	width: 50%;
+	position: absolute;
+	right: 0px;
+	height: 100%;
+ }
