@@ -66,6 +66,10 @@ include "config.php";
         <label for="name">First Name</label><br>
             <input type="text" id="fname" name="fname" placeholder="Enter first name">
         </div>
+        <div class="innerDiv">
+        <label for="name">First Name</label><br>
+            <input type="text" id="fname" name="fname" placeholder="Enter first name">
+        </div>
         
         
         <div class="innerDiv">
