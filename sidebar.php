@@ -81,6 +81,7 @@
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href="#">Customers</a></li>
+          <li><a href="./sidebar.php?addCustomer">Add Customer</a></li>
           <li><a href="./sidebar.php?viewCustomer">View Customer</a></li>
          <!-- <li><a href="#">Pigments</a></li>
           <li><a href="#">Box Icons</a></li>-->
@@ -185,6 +186,10 @@
     if (isset($_GET['messageView'])) {
 
       include("messageView.php");
+    }
+    if (isset($_GET['addCustomer'])) {
+
+      include("AddCustomer.php");
     }
 
 

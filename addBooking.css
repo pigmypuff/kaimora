@@ -25,10 +25,26 @@ input {
   flex: 2;
 }
 .btn-container {
+  width: 100%;
   display: flex;
   justify-content: end;
+}
+button {
+  width: 200px;
+  height: 50px;
 }
 button:hover {
   background-color: lightblue;
   color: black;
+}
+.php-booking {
+  display: flex;
+  justify-content: center;
+  background-color: aqua;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px;
+  font-weight: 400;
+  height: 40px;
+  border: 1px solid blueviolet;
 }

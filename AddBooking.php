@@ -21,41 +21,79 @@ require "config.php";
 
     <div class="commonClass" style=" border-bottom-right-radius: 20px;
     border-bottom-left-radius:20px; ">
-        <form name="myForm" action="./AddBooking.php" method="POST" id="bookingForm">
+        <div class="php-booking">
+            <?php
+        include "config.php";
+        if(isset($_POST['submit'])){
+
+        $customerId =  $_POST['customerId'];
+        $brideName = $_POST['brideName'];
+        $groomName = $_POST['groomName'];
+        $typeofCeremony = $_POST['typeofCeremony'];
+        $brideEmail = $_POST['brideEmail'];
+        $groomEmail = $_POST['groomEmail'];
+        $telephone =$_POST['telephone'];
+        $location = $_POST['location'];
+        $preshootDate =$_POST['preshootDate'];
+        $weddingDate = $_POST['weddingDate'];
+        $package = $_POST['package'];
+
+    
+        if($customerId !=""){
+            $query = "INSERT INTO bookings(customerId,brideName,groomName,typeofCeremony,brideEmail,groomEmail,telephone,locations,preshootDate,weddingDate,package) VALUES('$customerId','$brideName','$groomName','$typeofCeremony','$brideEmail','$groomEmail','$telephone','$location','$preshootDate','$weddingDate','$package') ";
+             $result = mysqli_query($conn,$query);
+
+    if($result){
+        echo "successfully booked..!";
+    }else{
+        echo "sorry.operation failed..!";
+    }
+    mysqli_close($conn);
+        }else{
+            echo "Booking Failed.Required fields are Empty..!";
+        }
+    
+}
+
+?>
+        </div>
+
+
+        <form name="bookingForm" action="" method="POST" id="bookingForm">
             <div class="form-left-column">
                 <div class="form-item">
-                    <label for="customerID">Customer ID</label>
-                    <input type="text" id="customerID">
+                    <label for="customerId">Customer ID</label>
+                    <input type="text" name="customerId" id="customerId">
                 </div>
 
                 <div class="form-item">
                     <label for="brideName">Bride’s Name</label>
-                    <input type="text" id="brideName">
+                    <input type="text" name="brideName" id="brideName">
                 </div>
 
                 <div class="form-item">
                     <label for="groomName">Groom’s Name</label>
-                    <input type="text" id="groomName">
+                    <input type="text" name="groomName" id="groomName">
                 </div>
 
                 <div class="form-item">
                     <label for="typeofCeremony">Type of Ceremony</label>
-                    <input type="text" id="typeofCeremony">
+                    <input type="text" name="typeofCeremony" id="typeofCeremony">
                 </div>
 
                 <div class="form-item">
                     <label for="brideEmail">Bride’s e-mail</label>
-                    <input type="text" id="brideEmail">
+                    <input type="text" name="brideEmail" id="brideEmail">
                 </div>
 
                 <div class="form-item">
                     <label for="groomEmail">Groom’s e-mail</label>
-                    <input type="text" id="groomEmail">
+                    <input type="text" name="groomEmail" id="groomEmail">
                 </div>
 
                 <div class="form-item">
                     <label for="telephone">Telephone</label>
-                    <input type="text" id="telephone">
+                    <input type="text" name="telephone" id="telephone">
                 </div>
 
 
@@ -64,22 +102,22 @@ require "config.php";
             <div class="form-right-column">
                 <div class="form-item">
                     <label for="location">Location</label>
-                    <input type="text" id="location">
+                    <input type="text" name="location" id="location">
                 </div>
 
                 <div class="form-item">
                     <label for="preshootDate">Preshoot Date</label>
-                    <input type="date" id="preshootDate">
+                    <input type="date" name="preshootDate" id="preshootDate">
                 </div>
 
                 <div class="form-item">
                     <label for="weddingDate">Wedding Date</label>
-                    <input type="date" id="weddingDate">
+                    <input type="date" name="weddingDate" id="weddingDate">
                 </div>
 
                 <div class="form-item">
                     <label for="package">Package</label>
-                    <input type="text" id="package">
+                    <input type="text" name="package" id="package">
                 </div>
 
             </div>
@@ -90,7 +128,7 @@ require "config.php";
 
         </form>
         <div class="btn-container">
-            <button class="add-btn" type="submit" form="bookingForm" value="Submit">Add</button>
+            <button class="add-btn" type="submit" form="bookingForm" value="Submit" name="submit">Add</button>
         </div>
 
 
