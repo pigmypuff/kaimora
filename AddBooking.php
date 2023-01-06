@@ -21,11 +21,11 @@ require "config.php";
 
     <div class="commonClass" style=" border-bottom-right-radius: 20px;
     border-bottom-left-radius:20px; ">
-        <div class="php-booking">
+        <div class="php-booking"> 
             <?php
         include "config.php";
         if(isset($_POST['submit'])){
-
+ 
         $customerId =  $_POST['customerId'];
         $brideName = $_POST['brideName'];
         $groomName = $_POST['groomName'];

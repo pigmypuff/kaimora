@@ -49,7 +49,7 @@
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href="#">Bookings</a></li>
-          <li><a href="#">Add Bookings</a></li>
+          <li><a href="./sidebar.php?addBooking">Add Bookings</a></li>
           <li><a href="#">View bookings</a></li>
         </ul>
       </li>
@@ -76,7 +76,9 @@
           <a href="#">
             <i class='bx bxs-user-detail'></i>
             <span class="link_name">Customers</span>
+           
           </a>
+          <i class='bx bxs-chevron-down arrow'></i>
           <!--<i class='bx bxs-chevron-down arrow' ></i>-->
         </div>
         <ul class="sub-menu">
@@ -190,6 +192,10 @@
     if (isset($_GET['addCustomer'])) {
 
       include("AddCustomer.php");
+    }
+    if (isset($_GET['addBooking'])) {
+
+      include("AddBooking.php");
     }
 
 
