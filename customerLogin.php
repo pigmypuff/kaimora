@@ -31,7 +31,8 @@
             
                 if ($email != "" && $pass != ""){
 
-                    $sql_query = "select Id from customer where (email='$email') AND (password='$pass')" ;
+                    $sql_query = "select * from customer where (email='$email') AND (password='$pass')" ;
+                    
                 
                 
                     $result = mysqli_query($conn,$sql_query) or trigger_error("query failed SQL: $sql_query - Error : ".mysqli_error($conn), E_USER_ERROR);
@@ -39,8 +40,13 @@
                     $count = mysqli_num_rows($result);
 
                     if($count==1){
+                      $row = mysqli_fetch_assoc($result);
                         $_SESSION['email'] = $email;
+                        $_SESSION["login"]="1";
+                       // $_SESSION['Id'] = $row['Id'];
+                        $_SESSION['name'] = $row['name'];
 
+             
                        header('Location:navigationBar.php?carousal');
                         
                     }else{

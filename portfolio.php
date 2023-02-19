@@ -142,7 +142,7 @@
                 <p class="card-text">
                   Wedding Moments
                 </p>
-                <a href="#!" class="btn btn-primary" style="background-color: black;">More</a>
+                <a href="gallery3.php" class="btn btn-primary" style="background-color: black;">More</a>
               </div>
             </div>
           </div>

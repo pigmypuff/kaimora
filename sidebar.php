@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="sidebar.css">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaimora Weddings</title>
 </head>
 
 <body>
@@ -63,12 +64,12 @@
         </ul>
       </li>
       <li>
-        <a href="#">
+        <a href="./sidebar.php?viewRequests">
           <i class='bx bxs-book-open'></i>
-          <span class="link_name">Reservations</span>
+          <span class="link_name">Requests</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Reservations</a></li>
+          <li><a class="link_name" href="./sidebar.php?viewRequests ">Requests</a></li>
         </ul>
       </li>
       <li>
@@ -196,6 +197,10 @@
     if (isset($_GET['addBooking'])) {
 
       include("AddBooking.php");
+    }
+    if (isset($_GET['viewRequests'])) {
+
+      include("viewRequests.php");
     }
 
 

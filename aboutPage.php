@@ -50,33 +50,23 @@
 
 								<br><br>
 								<h5 class="card-title">About us!</h5>
-								<p>We are Kaimora Weddings,
-									professional and well known wedding photographers
-									in the island based in Colombo.
-									Our team is dedicated in capturing
-									the most scenic and blissful moments
-									of your big day to make it memorable with
-									passion and professional cognizance.</p>
+								<p>Your wedding day is one of the most important and unforgettable days of your life, and you want to make sure that every moment is captured perfectly. That's where Kaimora Weddings comes in. We are a team of professional and well-known wedding photographers based in Colombo, with a passion for capturing the most beautiful and scenic moments of your big day.
+								</p>
+								<p>We understand that your wedding day can be stressful and overwhelming, which is why our team is dedicated to making the experience as comfortable and stress-free as possible. Our photographers have years of experience and a keen eye for detail, allowing us to capture every special moment, from the exchange of vows to the first dance.</p>
 
-								<br>
+
 
 								<i class="fa fa-heart" aria-hidden="true"></i>
-								<p>Weddings</p><br>
+								<p>Weddings</p>
 								<i class="fa fa-heart" aria-hidden="true"></i>
-								<p>Casual Shoots</p><br>
+								<p>Casual Shoots</p>
 								<i class="fa fa-heart" aria-hidden="true"></i>
-								<p>Engagements</p><br>
+								<p>Engagements</p>
 
 
+								<p>At Kaimora Weddings, our ultimate goal is to let you enjoy your big day while we take care of the rest. We understand that every wedding is unique and deserves a personalized touch, which is why we work closely with our clients to understand their vision and make it a reality. From the moment you book with us, we'll be there to provide a dextrous service, ensuring that your wedding photos will be a treasure you'll cherish forever.</p>
 
-
-								<p>We make sure that you
-									feel comfortable and stress-free
-									on your wedding day
-									with our experience and instincts.
-									Our ultimate goal is to
-									let you enjoy your big day
-									while catering a dextrous service.
+								<p>Trust Kaimora Weddings to make your wedding day an experience you'll never forget. Contact us today to learn more about our services and how we can make your big day unforgettable.
 
 								</p>
 

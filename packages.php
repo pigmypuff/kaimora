@@ -1,3 +1,14 @@
+<?php
+
+    
+    include "config.php";
+   // $logedInUsername = $_SESSION['user'];
+//echo $logedInUsername;
+
+    
+?>
+
+
 <!DOCTYPE html>
 
 <head>
@@ -103,7 +114,7 @@
                 <div class="modal-body">
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">Photo session with couple on desired location</li>
-                    <li class="list-group-item">Full function coverage</li>
+                    <li class="-list-group-item">Full function coverage</li>
                     <li class="list-group-item">20' x 30' enlargement with frame</li>
                     <li class="list-group-item">100 thank you cards</li>
                     <li class="list-group-item">12" x 30" Fine art or Magazine type photo album</li>

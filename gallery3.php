@@ -26,6 +26,19 @@
           <li class="nav-item">
             <a class="nav-link" href="./navigationBar.php?view">Contact Us</a>
           </li>
+          <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Account
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Log In</a></li>
+                  <li><a class="dropdown-item" href="#">Request Status</a></li>
+                  <li><a class="dropdown-item" href="#">Payments</a></li>
+                  <li><a class="dropdown-item" href="#">Reviews</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Log Out</a></li>
+                </ul>
+              </li> 
           <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown
@@ -50,7 +63,7 @@
         <form class="container-fluid justify-content-start">
             <button class="btn btn-sm btn-outline-secondary mx-2" type="button">Requst a Quote </button>  
             
-          <button class="btn btn-sm btn-outline-secondary" type="button"> Log In</button>
+          
         </form>
       </div>
 
@@ -64,13 +77,13 @@
 <div class="row justify-content-center">
     <div class="col-lg-2 col-md-12 mb-4 mb-lg-0">
       <img
-        src="gallery1/1.jpg"
+        src="gallery3/1.jpg"
         class="w-100 shadow-1-strong rounded mb-4"
         alt=""
       />
   
       <img
-        src="gallery1/2.jpg"
+        src="gallery3/3.jpg"
         class="w-100 shadow-1-strong rounded mb-4"
         alt=""
       />
@@ -78,13 +91,13 @@
   
     <div class="col-lg-2 mb-4 mb-lg-0">
       <img
-        src="gallery1/3.jpg"
+        src="gallery3/5.jpg"
         class="w-100 shadow-1-strong rounded mb-4"
         alt=""
       />
   
       <img
-        src="gallery1/7.jpg"
+        src="gallery3/4.jpg"
         class="w-100 shadow-1-strong rounded mb-4"
         alt=""
       />
@@ -92,26 +105,26 @@
   
     <div class="col-lg-2 mb-4 mb-lg-0">
       <img
-        src="gallery1/5.jpg"
+        src="gallery3/2.jpg"
         class="w-100 shadow-1-strong rounded mb-4"
         alt=""
       />
   
       <img
-        src="gallery1/6.jpg"
+        src="gallery3/9.jpg"
         class="w-100 shadow-1-strong rounded mb-4"
         alt=""
       />
     </div>
     <div class="col-lg-2 mb-4 mb-lg-0">
       <img
-        src="gallery1/5.jpg"
+        src="gallery3/12.jpg"
         class="w-100 shadow-1-strong rounded mb-4"
         alt=""
       />
   
       <img
-        src="gallery1/6.jpg"
+        src="gallery3/8.jpg"
         class="w-100 shadow-1-strong rounded mb-4"
         alt=""
       />

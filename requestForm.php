@@ -1,3 +1,47 @@
+<?php
+// connect to database
+session_start();
+include "config.php";
+
+  $logedInUseremail = $_SESSION['email'];
+echo $logedInUseremail;
+
+if (isset($_POST['submit'])) {
+    // retrieve form data
+    $bname = $_POST['bname'];
+    $gname = $_POST['gname'];
+    $time = $_POST['time'];
+    $location = $_POST['location'];
+    $email = $_POST['email'];
+    $date = $_POST['date'];
+    $message = $_POST['message'];
+    $submit_date = date("Y-m-d H:i:s");
+    $event_type = $_POST['event_type'];
+    
+
+    // insert data into database
+    $sql = "INSERT INTO requests (bride_name, groom_name, time, location, email, date, message, submittedDate, event_type, user_email)
+            VALUES ('$bname', '$gname', '$time', '$location', '$email', '$date', '$message', '$submit_date', '$event_type','$logedInUseremail')";
+    //mysqli_query($conn, $sql);
+
+    // redirect to success page
+   
+
+    $result =   $conn->query($sql);
+     
+      if($result == TRUE){
+         echo "New record created successfully";
+         header("Location: navigationBar.php?requestStatus");
+
+         
+      }else{
+         echo "Error:". $sql. "<br>". $conn->error;
+      }    
+    
+      
+}
+?>
+
 <!DOCTYPE html>
 
 <head>
@@ -41,36 +85,26 @@
 
 
 
-
-
                             <div class="btn-group p-md" role="group" aria-label="Basic radio toggle button group">
-                                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                                <input type="radio" class="btn-check" name="event_type" id="btnradio1" value="Wedding" autocomplete="off" checked>
                                 <label class="btn btn-outline-dark" for="btnradio1">Wedding</label>
 
-                                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                                <input type="radio" class="btn-check" name="event_type" id="btnradio2" value="Engagement" autocomplete="off">
                                 <label class="btn btn-outline-dark" for="btnradio2">Engagement</label>
 
-                                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                                <input type="radio" class="btn-check" name="event_type" id="btnradio3" value="Casual Shoot" autocomplete="off">
                                 <label class="btn btn-outline-dark" for="btnradio3">Casual Shoot</label>
                             </div>
 
-
-
-
-
-
-
-
-
                             <div>
                                 <div class="innerDiv col pt-md">
-                                    <label for="name">Bride's Name</label><br>
+                                    <label for="bname">Bride's Name</label><br>
                                     <input type="text" id="bname" name="bname" placeholder="">
                                 </div>
 
 
                                 <div class="innerDiv col">
-                                    <label for="fname">Groom's Name</label><br>
+                                    <label for="gname">Groom's Name</label><br>
                                     <input type="text" id="gname" name="gname" placeholder="">
                                 </div>
                             </div>
