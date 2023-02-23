@@ -12,11 +12,11 @@
 
     include "config.php";
 
-    if (isset($_REQUEST['UserID'])) {
+    if (isset($_REQUEST['email'])) {
 
-        $UserID = $_REQUEST['UserID'];
+        $email = $_REQUEST['email'];
 
-        $sql = "SELECT * FROM employee WHERE UserID ='$UserID'";
+        $sql = "SELECT * FROM employee WHERE email ='$email'";
 
         $result = $conn->query($sql) or die($conn->error);
 
@@ -46,7 +46,7 @@
         $image = $_POST['image'];
 
         //query;
-        $sql = "UPDATE employee SET FirstName = '$FirstName', LastName = '$LastName', NIC = '$NIC', email = '$email', DOB = '$DOB', JoinedDate = '$JoinedDate', contact = '$contact', address = '$address', image = '$image' WHERE UserID = '$UserID'";
+        $sql = "UPDATE employee SET FirstName = '$FirstName', LastName = '$LastName', NIC = '$NIC', email = '$email', DOB = '$DOB', JoinedDate = '$JoinedDate', contact = '$contact', address = '$address', image = '$image' WHERE email = '$email'";
 
         $result = $conn->query($sql) or die($conn->error);
 
