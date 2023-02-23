@@ -32,7 +32,7 @@ include "config.php";
 
         if ($email != "" && $pass != "") {
 
-            $sql_query = "select * from users where (email='$email') AND (password='$pass')";
+            $sql_query = "select * from employee where (email='$email') AND (password='$pass')";
 
 
 
@@ -102,7 +102,7 @@ include "config.php";
                                         </div>
 
                                         <a class="small text-muted" href="#!">Forgot password?</a>
-                                        <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="registerCustomer.php" style="color: #393f81;">Register here</a></p>
+                                        <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="registerEmployee.php" style="color: #393f81;">Register here</a></p>
 
                                     </form>
 
