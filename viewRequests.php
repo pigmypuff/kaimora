@@ -48,6 +48,7 @@ if (isset($_POST['accept'])) {
                 <th>Message</th>
                 <th>Submitted Date</th>
                 <th>Event Type</th>
+                <th>Package</th>
                 <th>User email</th>
                 <th> Status </th>
             </tr>
@@ -68,22 +69,23 @@ if (isset($_POST['accept'])) {
                     <td><?php echo $row['message'] ?></td>
                     <td><?php echo $row['submittedDate']; ?></td>
                     <td><?php echo $row['event_type']; ?> </td>
+                    <td><?php echo $row['Package_name'] ?></td>
                     <td><?php echo $row['user_email'] ?></td>
                     <td>
-  <?php
-    if ($row['accepted'] == 0) {
-      echo '<form action="sidebar.php?viewRequests" method="post">
-              <input type="hidden" name="id" value="'.$row['Request_id'].'">
+                        <?php
+                        if ($row['accepted'] == 0) {
+                            echo '<form action="sidebar.php?viewRequests" method="post">
+              <input type="hidden" name="id" value="' . $row['Request_id'] . '">
               <input type="submit" name="accept" value="Accept">
               <input type="submit" name="decline" value="Decline">
             </form>';
-    } else if ($row['accepted'] == 1) {
-      echo 'Accepted';
-    } else {
-      echo 'Declined';
-    }
-  ?>
-</td>
+                        } else if ($row['accepted'] == 1) {
+                            echo 'Accepted';
+                        } else {
+                            echo 'Declined';
+                        }
+                        ?>
+                    </td>
 
 
                 </tr>

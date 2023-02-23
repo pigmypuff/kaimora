@@ -22,7 +22,7 @@
     <table class="table">
                         <thead>
                             <tr>
-                                <th>Customer ID</th>
+                               
                                 <th>Name</th>
                                 <th>email</th>
                                 <th>Contact Number</th>
@@ -34,7 +34,7 @@
                                     while($row=$result->fetch_assoc()){
                                  ?>
                                     <tr>
-                                        <td><?php echo $row['Id']; ?></td>
+                                        
                                         <td><?php echo $row['name']; ?></td>
                                         <td><?php echo $row['email']; ?></td>
                                         <td><?php echo $row['contact'] ?></td>

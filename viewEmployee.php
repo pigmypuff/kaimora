@@ -34,7 +34,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                               
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>NIC</th>
@@ -50,7 +50,7 @@
                                     while($row=$result->fetch_assoc()){
                                  ?>
                                     <tr>
-                                        <td><?php echo $row['UserID']; ?></td>
+                                        
                                         <td><?php echo $row['FirstName']; ?></td>
                                         <td><?php echo $row['LastName']; ?></td>
                                         <td><?php echo $row['NIC'] ?></td>
@@ -60,8 +60,8 @@
                                         <td><?php echo $row['address'] ?></td>
                                         <td>
                                             
-                                              <a class="btn btn-info" href="updateStaff.php ?UserID=<?php echo $row['UserID']; ?>"  >Edit</a>&nbsp;&nbsp;
-                                                <a class="btn btn-danger" href="deleteEmployee.php ?UserID=<?php echo $row['UserID']; ?>">Delete</a> 
+                                              <a class="btn btn-info" href="updateStaff.php ?email=<?php echo $row['email']; ?>"  >Edit</a>&nbsp;&nbsp;
+                                                <a class="btn btn-danger" href="deleteEmployee.php ?email=<?php echo $row['email']; ?>">Delete</a> 
                                             
                                             
                                         </td>
