@@ -3,7 +3,7 @@
 session_start();
 include "config.php";
 
-  $logedInUseremail = $_SESSION['email'];
+$logedInUseremail = $_SESSION['email'];
 echo $logedInUseremail;
 
 if (isset($_POST['submit'])) {
@@ -17,28 +17,25 @@ if (isset($_POST['submit'])) {
     $message = $_POST['message'];
     $submit_date = date("Y-m-d H:i:s");
     $event_type = $_POST['event_type'];
-    
+    $Package_name = $_POST['Package_name'];
+
 
     // insert data into database
-    $sql = "INSERT INTO requests (bride_name, groom_name, time, location, email, date, message, submittedDate, event_type, user_email)
-            VALUES ('$bname', '$gname', '$time', '$location', '$email', '$date', '$message', '$submit_date', '$event_type','$logedInUseremail')";
+    $sql = "INSERT INTO requests (bride_name, groom_name, time, location, email, date, message, submittedDate, event_type, user_email,Package_name)
+            VALUES ('$bname', '$gname', '$time', '$location', '$email', '$date', '$message', '$submit_date', '$event_type','$logedInUseremail','$Package_name')";
     //mysqli_query($conn, $sql);
 
     // redirect to success page
-   
+
 
     $result =   $conn->query($sql);
-     
-      if($result == TRUE){
-         echo "New record created successfully";
-         header("Location: navigationBar.php?requestStatus");
 
-         
-      }else{
-         echo "Error:". $sql. "<br>". $conn->error;
-      }    
-    
-      
+    if ($result == TRUE) {
+        echo "New record created successfully";
+        header("Location: navigationBar.php?requestStatus");
+    } else {
+        echo "Error:" . $sql . "<br>" . $conn->error;
+    }
 }
 ?>
 
@@ -130,7 +127,41 @@ if (isset($_POST['submit'])) {
                                     <input type="date" id="date" name="date" placeholder="">
                                 </div>
                             </div>
+                            <br>
 
+
+                            <div class="innerDiv col">
+                                <label for="package">Selected Package</label><br>
+
+                            </div>
+
+
+                            <select name="Package_name" id="package">
+                                <optgroup label="Wedding Packages">
+                                    <option value="Wedding Package 01">Wedding Package 01</option>
+                                    <option value="Wedding Package 02">Wedding Package 02</option>
+                                    <option value="Wedding Package 03">Wedding Package 03</option>
+                                </optgroup>
+                                <optgroup label="Homecomming Packages">
+                                    <option value="Homecomming Package 01">Homecomming Package 01</option>
+                                    <option value="Homecomming Package 02">Homecomming Package 02</option>
+                                </optgroup>
+                                <optgroup label="All-in-one Packages">
+                                    <option value="All in one Package 01">All in one Package 01</option>
+                                    <option value="All in one Package 02">All in one Package 02</option>
+                                </optgroup>
+                                <optgroup label="Engagement Packages">
+                                    <option value="Engagement Package 01">Engagement Package 01</option>
+                                    <option value="Engagement Package 02">Engagement Package 02</option>
+                                </optgroup>
+                                <optgroup label="Preshoot Packages">
+                                    <option value="Preshoot Package 01">Preshoot Package 01</option>
+                                    <option value="Preshoot Package 02">Preshoot Package 02</option>
+                                </optgroup>
+                            </select>
+
+                            <br>
+                            <br>
                             <div class="row">
                                 <div class="col">
 
