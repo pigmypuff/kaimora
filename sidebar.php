@@ -141,8 +141,10 @@
         <div class="profile_name">Prem Shahi</div>
         <div class="job">Web Desginer</div>
       </div> -->
+      <a href="logoutEmp.php">
           <div class="log_out">Log Out</div>
           <i class='bx bx-log-out'></i>
+      </a>
         </div>
       </li>
     </ul>
