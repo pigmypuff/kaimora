@@ -52,6 +52,7 @@
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="customerLogin.php">Log In</a></li>
                   <li><a class="dropdown-item" href="./navigationBar.php?requestStatus">Request Status</a></li>
+                  <li><a class="dropdown-item" href="./navigationBar.php?packages">Package Details</a></li>
                   <li><a class="dropdown-item" href="#">Payments</a></li>
                   <li><a class="dropdown-item" href="./navigationBar.php?addReview">Reviews</a></li>
                   <li><hr class="dropdown-divider"></li>
@@ -110,6 +111,10 @@
     if (isset($_GET['requestStatus'])) {
 
       include("requestStatus.php");
+    } 
+    if (isset($_GET['packages'])) {
+
+      include("packages.php");
     } 
     //*if (isset($_GET['customerLogin'])) {
 
