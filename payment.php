@@ -1,3 +1,21 @@
+<?php
+
+session_start();
+include "config.php";
+
+$email = $_SESSION['email'];
+$sql = "SELECT * FROM requests WHERE user_email = '$email' AND accepted = 1";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+$Package_name = $row['Package_name'];
+$sql1 = "SELECT * FROM packages where package_name ='$Package_name'";
+$result1 = $conn->query($sql1);
+$row1 = $result1->fetch_assoc();
+$amount = $row1['amount'];
+//echo $amount;
+//echo $Package_name;
+?>
+
 <!DOCTYPE html>
 
 <head>
@@ -29,7 +47,7 @@
 
               <div class="col-lg-7">
                 <h5 class="mb-3"><a href="#!" class="text-body"><i
-                      class="fas fa-long-arrow-alt-left me-2"></i>Continue shopping</a></h5>
+                      class="fas fa-long-arrow-alt-left me-2"></i>Go Back</a></h5>
                 <hr>
 
                 <div class="d-flex justify-content-between align-items-center mb-4">
@@ -123,14 +141,14 @@
                       <div class="d-flex flex-row align-items-center">
                         
                         <div class="ms-3">
-                          <h5>Wedding Package 01</h5>
+                          <h5><?php echo $Package_name; ?></h5>
                           <p class="small mb-0"> </p>
                         </div>
                       </div>
                       <div class="d-flex flex-row align-items-center">
                         
-                        <div style="width: 80px;">
-                          <h6 class="mb-0">Rs.120 000</h6>
+                        <div style="width: 90px;">
+                          <p> Rs.<?php echo $amount; ?></p>
                         </div>
                         <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
                       </div>
@@ -193,12 +211,12 @@
 
                     <div class="d-flex justify-content-between">
                       <p class="mb-2">Package Amount</p>
-                      <p class="mb-2">Rs.120 000</p>  
+                      <p class="mb-2">Rs.<?php echo $amount; ?></p>  
                     </div>
 
                     <div class="d-flex justify-content-between">
                       <p class="mb-2">Advance Amount</p>
-                      <p class="mb-2">Rs.20 000</p>
+                      <p class="mb-2">Rs.<?php echo $amount*0.1; ?></p>
                     </div>
 
                    <!-- <div class="d-flex justify-content-between mb-4">
@@ -208,7 +226,7 @@
 
                     <button type="button" class="btn btn-info btn-block btn-lg">
                       <div class="d-flex justify-content-between">
-                        <span>Rs.20000</span>
+                        <span>Rs.<?php echo $amount*0.1; ?></span>
                         <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
                       </div>
                     </button>
