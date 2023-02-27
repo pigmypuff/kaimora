@@ -79,6 +79,7 @@ $result = $conn->query($sql);
                       <th>Requestor Name</th>
                       <th>Requested Date</th>
                       <th>Response</th>
+                      <th>Payment Status</th>
                     </tr>
                   </thead>
 
@@ -99,10 +100,28 @@ $result = $conn->query($sql);
                             }
                             ?>
                         </td>
+                        <td><?php
+                            if ($row['accepted'] == 0) {
+                            ?>
+                            <button type="button" class="btn btn-light" disabled>Pay Advance Amount</button><?php
+                                                                                                          }
+                                                                                                          if ($row['accepted'] == 1 && $row['payment_status'] == "no payments") {
+                                                                                                            ?>
+                            <button type="button" class="btn btn-light">Pay Advance Amount</button><?php
+                                                                                                          }
+                                                                                                          if ($row['accepted'] == 1 && $row['payment_status'] == "advance payment") {
+                                                                                                    ?>
+                            <button type="button" class="btn btn-light">Pay Remaining Amount</button><?php
+                                                                                                          }
+
+
+
+                                                                                                      ?>
+                        </td>
                       </tr>
                     <?php
 
-                   }
+                    }
 
                     ?>
                   </tbody>
@@ -111,9 +130,7 @@ $result = $conn->query($sql);
                 </table>
 
 
-                <br>
-                <a href="packages.php" class="btn btn-outline-dark">Book Now</a>
-                <br>
+
               </div>
               <br>
               <br>
