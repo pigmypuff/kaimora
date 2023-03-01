@@ -8,6 +8,7 @@ require "config.php";
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="formstyle.css">
     <link rel="stylesheet" type="text/css" href="addBooking.css">
+
 </head>
 
 <body>

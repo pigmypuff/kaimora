@@ -8,8 +8,9 @@ $email = $_SESSION['email'];
 //echo $name;
 //echo $email;
 $sql = "SELECT * FROM requests where user_email='$email'";
-
 $result = $conn->query($sql);
+
+
 ?>
 
 
@@ -31,6 +32,8 @@ $result = $conn->query($sql);
 
 
 <body>
+
+
 
 
   <main class="my-5">
@@ -57,6 +60,8 @@ $result = $conn->query($sql);
 
             </div>
           </div>
+
+        
 
           <div class="col-lg-6 mb-4">
             <div class="card ">
@@ -88,6 +93,7 @@ $result = $conn->query($sql);
                     while ($row = $result->fetch_assoc()) {
                     ?>
                       <tr>
+                        
                         <td><?php echo $name; ?></td>
                         <td><?php echo $row['submittedDate']; ?></td>
                         <td><?php
@@ -100,18 +106,28 @@ $result = $conn->query($sql);
                             }
                             ?>
                         </td>
-                        <td><?php
+                         
+                        <td>
+                          <?php
                             if ($row['accepted'] == 0) {
                             ?>
-                            <button type="button" class="btn btn-light" disabled>Pay Advance Amount</button><?php
-                                                                                                          }
-                                                                                                          if ($row['accepted'] == 1 && $row['payment_status'] == "no payments") {
-                                                                                                            ?>
-                            <button type="button" class="btn btn-light">Pay Advance Amount</button><?php
-                                                                                                          }
-                                                                                                          if ($row['accepted'] == 1 && $row['payment_status'] == "advance payment") {
+
+                            <button type="button" class="btn btn-light" disabled >Pay Advance Amount</button>
+                            <?php
+                                                                                                          } ?>
+                          <?php if ($row['accepted'] == 1 && $row['payment_status'] == "no payments") {
+                          ?>
+                                                                                       
+                        <button type="button" class="btn btn-light" onclick="location.href='payment.php?status=advance&packageName=<?php echo $row['Package_name']; ?>'">Pay Advance Amount</button> 
+                       
+                        <?php
+                                                                                                          }?>
+                                                                                                        <?php  if ($row['accepted'] == 1 && $row['payment_status'] == "advance payment") {
                                                                                                     ?>
-                            <button type="button" class="btn btn-light">Pay Remaining Amount</button><?php
+                            <button type="button" class="btn btn-light" onclick="location.href='payment.php?status=remaining&packageName=<?php echo $row['Package_name']; ?>'">Pay Remaining Amount</button>
+                          
+
+                            <?php
                                                                                                           }
 
 
@@ -150,8 +166,10 @@ $result = $conn->query($sql);
 
 
   </main>
+
   <!--Main layout-->
 </body>
+
 
 
 </html>

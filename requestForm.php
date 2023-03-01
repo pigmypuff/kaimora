@@ -6,13 +6,13 @@ include "config.php";
 $logedInUseremail = $_SESSION['email'];
 echo $logedInUseremail;
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['form_submitted'])) {
     // retrieve form data
-    $bname = $_POST['bname'];
+    $bname = $_POST['to_name'];
     $gname = $_POST['gname'];
     $time = $_POST['time'];
     $location = $_POST['location'];
-    $email = $_POST['email'];
+    $email = $_POST['to_email'];
     $date = $_POST['date'];
     $message = $_POST['message'];
     $submit_date = date("Y-m-d H:i:s");
@@ -31,8 +31,10 @@ if (isset($_POST['submit'])) {
     $result =   $conn->query($sql);
 
     if ($result == TRUE) {
+
         echo "New record created successfully";
         header("Location: navigationBar.php?requestStatus");
+        
     } else {
         echo "Error:" . $sql . "<br>" . $conn->error;
     }
@@ -48,8 +50,69 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+   
 
+ <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init('TsPnV9qqo03Jnn5kJ');
+        })();
+    </script> -->
 
+    <script type="text/javascript">
+      
+        window.onload = function() {
+            document.getElementById('submitForm').addEventListener('click', function(event) {
+
+                var data = {
+                    service_id: 'service_mm4fp0s',
+                    template_id: 'template_db10v56',
+                    user_id: 'TsPnV9qqo03Jnn5kJ',
+                    template_params: {
+                        'to_name': document.getElementById("to_name").value,
+                        'to_email': document.getElementById("to_email").value,
+                    }
+                };
+                
+                fetch('https://api.emailjs.com/api/v1.0/email/send', {
+                    method: 'POST',
+                    headers:{
+                        "Content-type": 'application/json'
+                    },
+                    body: JSON.stringify(data),
+                  
+                })
+                .then(res=>res.text())
+                .then(res=>{
+                    console.log(res)
+
+                    setTimeout(() => {
+                         document.getElementById('requestForm').submit()
+                        
+                    }, 500);
+                })
+                .catch(error=>{
+                    console.log(error)
+                })
+
+                
+                // // generate a five digit number for the contact_number variable
+                // this.contact_number = Math.random() * 100000 | 0;
+                
+                // emailjs.sendForm('service_mm4fp0s', 'template_db10v56', this)
+                //     .then(function() {
+                //         console.log('SUCCESS!');
+
+                //        
+                //     }, function(error) {
+                //         console.log('FAILED...', error);
+                //     });
+            });
+           
+        }
+    </script> 
+  
 </head>
 
 
@@ -77,7 +140,9 @@ if (isset($_POST['submit'])) {
 
                     <div class="col-lg-6 mb-4 p-0 pt-md">
 
-                        <form method="POST" id="requestForm" name="requestForm" action="./requestForm.php">
+                        <form method="POST" id="requestForm" name="requestForm" action="./requestForm.php" >
+                            <input name="form_submitted" value="sent" hidden />
+
                             <br><br>
 
 
@@ -96,7 +161,7 @@ if (isset($_POST['submit'])) {
                             <div>
                                 <div class="innerDiv col pt-md">
                                     <label for="bname">Bride's Name</label><br>
-                                    <input type="text" id="bname" name="bname" placeholder="">
+                                    <input type="text" id="to_name" name="to_name" placeholder="">
                                 </div>
 
 
@@ -119,7 +184,7 @@ if (isset($_POST['submit'])) {
 
                                 <div class="innerDiv col">
                                     <label for="email">Email</label><br>
-                                    <input type="email" id="email" name="email" value="" placeholder="">
+                                    <input type="email" id="to_email" name="to_email" value="" placeholder="">
                                 </div>
 
                                 <div class="innerDiv col">
@@ -170,6 +235,7 @@ if (isset($_POST['submit'])) {
                                     <div class="innerDiv align-center">
                                         <label for="message">Message</label><br>
                                         <textarea name="message" class="form-control" id="message" cols="2" rows="5" placeholder=""></textarea>
+                                        <input type="hidden" name="contact_number">
                                     </div>
                                     <br>
                                 </div>
@@ -177,18 +243,9 @@ if (isset($_POST['submit'])) {
 
                                 </div>
                             </div>
-
-
-
-
-                            <input type="submit" name="submit" value="Send" class="btn btn-outline-dark">
-                            <div class="submitting"></div>
-
-
                         </form>
-
-
-
+                          <button  id="submitForm" class="btn btn-outline-dark">Submit</button>
+                            <div class="submitting"></div>
 
                     </div>
 
@@ -200,6 +257,10 @@ if (isset($_POST['submit'])) {
         </div>
     </main>
     <!--Main layout-->
+
+
+    
+  
 </body>
 
 
