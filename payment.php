@@ -4,16 +4,61 @@ session_start();
 include "config.php";
 
 $email = $_SESSION['email'];
-$sql = "SELECT * FROM requests WHERE user_email = '$email' AND accepted = 1";
-$result = $conn->query($sql);
-$row = $result->fetch_assoc();
-$Package_name = $row['Package_name'];
-$sql1 = "SELECT * FROM packages where package_name ='$Package_name'";
-$result1 = $conn->query($sql1);
-$row1 = $result1->fetch_assoc();
-$amount = $row1['amount'];
-//echo $amount;
-//echo $Package_name;
+$name = $_SESSION['name'];
+
+ 
+$status = $_GET['status'];
+$packageName = $_GET['packageName'];
+$difference= 0 ;
+// echo '<script>let i = "' .$status. '"</script>';
+
+$sql_package = "SELECT amount FROM packages where package_name='$packageName'";
+$result_package = $conn->query($sql_package);
+$row_package = $result_package->fetch_assoc();
+$amount = $row_package['amount'];
+
+if($status === "advance"){
+$difference = $amount*0.1;
+
+}else if($status === "remaining"){
+$sql_payment = "SELECT *,full_amount - advance_amount AS difference FROM payments where user_email='$email' and package_name='$packageName'";
+$result_payment = $conn->query($sql_payment);
+$row_payment = $result_payment->fetch_assoc();
+$difference = $row_payment['difference'];
+}
+
+// echo $difference;
+
+
+
+ if (isset($_POST['form_submitted'])) {
+  $submit_date = date("Y-m-d H:i:s");
+  echo $status;
+
+  if($status === "remaining"){
+    $sql = "UPDATE payments SET full_paymentDate='$submit_date' WHERE user_email='$email' and package_name='$packageName'";
+  }else if($status === "advance"){
+    $sql = "UPDATE payments SET advance_amount = '$difference', advance_paymentDate='$submit_date',full_payment='$amount' WHERE user_email='$email' and package_name='$packageName'";
+  }
+
+
+    $result =   $conn->query($sql);
+
+    if ($result == TRUE) {
+
+        echo "New record created successfully";
+        header("Location: navigationBar.php?requestStatus");
+        
+    } else {
+        echo "Error:" . $sql . "<br>" . $conn->error;
+    }
+ 
+ }
+
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -28,12 +73,55 @@ $amount = $row1['amount'];
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+ <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
+    <script type="text/javascript">
+      
+        window.onload = function() {
+            document.getElementById('submitForm').addEventListener('click', function(event) {
+
+                var data = {
+                    service_id: 'service_mm4fp0s',
+                    template_id: 'template_db10v56',
+                    user_id: 'TsPnV9qqo03Jnn5kJ',
+                    template_params: {
+                        'to_name': '<?php echo $name?>',
+                        'to_email':"kosalalearning@gmail.com",
+                    }
+                };
+                
+                fetch('https://api.emailjs.com/api/v1.0/email/send', {
+                    method: 'POST',
+                    headers:{
+                        "Content-type": 'application/json'
+                    },
+                    body: JSON.stringify(data),
+                  
+                })
+                .then(res=>res.text())
+                .then(res=>{
+                    console.log(res)
+
+                    setTimeout(() => {
+                         document.getElementById('paymentForm').submit()
+                        
+                    }, 500);
+                })
+                .catch(error=>{
+                    console.log(error)
+                })
+
+            });
+           
+        }
+    </script> 
 
 </head>
 
 
 <body>
+
 
 
 <section class="h-100 h-custom" style="background-color: #eee;">
@@ -141,14 +229,14 @@ $amount = $row1['amount'];
                       <div class="d-flex flex-row align-items-center">
                         
                         <div class="ms-3">
-                          <h5><?php echo $Package_name; ?></h5>
+                          <h5><?php echo $packageName; ?></h5>
                           <p class="small mb-0"> </p>
                         </div>
                       </div>
                       <div class="d-flex flex-row align-items-center">
                         
                         <div style="width: 90px;">
-                          <p> Rs.<?php echo $amount; ?></p>
+                          <p> Rs.<?php echo $difference; ?></p>
                         </div>
                         <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
                       </div>
@@ -175,7 +263,7 @@ $amount = $row1['amount'];
                         class="fab fa-cc-amex fa-2x me-2"></i></a>
                     <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-paypal fa-2x"></i></a>
 
-                    <form class="mt-4">
+                    <form class="mt-4" id="paymentForm" name="paymentForm" action="./payment.php?status=<?php echo $status; ?>&packageName=<?php echo $packageName; ?>" method="POST">
                       <div class="form-outline form-white mb-4">
                         <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
                           placeholder="Cardholder's Name" />
@@ -204,32 +292,36 @@ $amount = $row1['amount'];
                           </div>
                         </div>
                       </div>
+                     
+                        <input name="form_submitted" value="sent" hidden />
 
                     </form>
 
                     <hr class="my-4">
 
                     <div class="d-flex justify-content-between">
-                      <p class="mb-2">Package Amount</p>
-                      <p class="mb-2">Rs.<?php echo $amount; ?></p>  
+                      <p class="mb-2">Amount</p>
+                      <p class="mb-2">Rs.<?php echo $difference; ?></p>  
                     </div>
 
-                    <div class="d-flex justify-content-between">
+                    <!-- <div class="d-flex justify-content-between">
                       <p class="mb-2">Advance Amount</p>
                       <p class="mb-2">Rs.<?php echo $amount*0.1; ?></p>
-                    </div>
+                    </div> -->
 
                    <!-- <div class="d-flex justify-content-between mb-4">
                       <p class="mb-2">Total(Incl. taxes)</p>
                       <p class="mb-2">$4818.00</p>
                     </div> -->
 
-                    <button type="button" class="btn btn-info btn-block btn-lg">
+                   <div class="d-flex justify-content-end">
+                     <button id="submitForm" class="btn btn-info btn-block btn-lg">
                       <div class="d-flex justify-content-between">
-                        <span>Rs.<?php echo $amount*0.1; ?></span>
-                        <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                        <!-- <span>Rs.<?php echo $amount*0.1; ?></span> -->
+                        <span>Pay <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
                       </div>
                     </button>
+                   </div>
 
                   </div>
                 </div>
@@ -245,6 +337,9 @@ $amount = $row1['amount'];
   </div>
 </section>
 
+  <!-- <script>
+   document.getElementById("value").innerHTML = i
+  </script> -->
 </body>
 
 
