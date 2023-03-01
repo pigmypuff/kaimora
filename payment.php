@@ -83,11 +83,12 @@ $difference = $row_payment['difference'];
 
                 var data = {
                     service_id: 'service_mm4fp0s',
-                    template_id: 'template_db10v56',
+                    template_id: 'template_bc0rxtq',
                     user_id: 'TsPnV9qqo03Jnn5kJ',
                     template_params: {
                         'to_name': '<?php echo $name?>',
-                        'to_email':"kosalalearning@gmail.com",
+                        'to_email':'<?php echo $email?>',
+                        'message': 'We received your payment of <?php echo $difference?>. Your payment is successfull !',
                     }
                 };
                 
