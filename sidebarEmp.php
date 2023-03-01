@@ -98,16 +98,16 @@
         <ul class="sub-menu blank">
           <li><a class="link_name" href="./sidebar.php?reviews">Reviews</a></li>
         </ul>
-      </li>
+      </li>-->
       <li>
-        <a href="./sidebar.php?reports">
+        <a href="./sidebarEmp.php?viewEvents">
           <i class='bx bxs-report'></i>
-          <span class="link_name">Reports</span>
+          <span class="link_name">Events</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="./sidebar.php?reports">Reports</a></li>
+          <li><a class="link_name" href="./sidebarEmp.php?viewEvents">Events</a></li>
         </ul>
-      </li> -->
+      </li> 
 
 
 
@@ -160,11 +160,6 @@
 
 
 
-    <!-- Calendly inline widget begin 
-<div class="calendly-inline-widget" data-url="https://calendly.com/ienanayakkara97?hide_landing_page_details=1&hide_gdpr_banner=1" style="min-width:320px;height:630px;"></div>
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<!-- Calendly inline widget end -->
-
     <?php
     if (isset($_GET['addEmployee'])) {
 
@@ -175,10 +170,7 @@
 
       include("viewEmployee.php");
     }
-    if (isset($_GET['reports'])) {
-
-      include("Reports.php");
-    }
+    
     if (isset($_GET['viewCustomer'])) {
 
       include("ViewCustomer.php");
@@ -200,9 +192,9 @@
 
       include("AddBooking.php");
     }
-    if (isset($_GET['viewRequests'])) {
+    if (isset($_GET['viewEvents'])) {
 
-      include("viewRequests.php");
+      include("viewEvents.php");
     }
 
 

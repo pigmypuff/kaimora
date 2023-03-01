@@ -30,8 +30,9 @@ echo $logedInUseremail;*/
     <table class="table">
         <thead>
             <tr>
+            <th>Review ID</th>
                 <th>Customer email</th>
-                <th>Review ID</th>
+                
                 <th>Review Date</th>
                 <th>Description</th>
             </tr>
@@ -40,8 +41,9 @@ echo $logedInUseremail;*/
             while ($row = $result->fetch_assoc()) {
             ?>
                 <tr>
+                <td><?php echo $row['review_id']; ?></td>
                     <td><?php echo $row['user_email']; ?></td>
-                    <td><?php echo $row['review_id']; ?></td>
+                   
                     <td><?php echo $row['date_created']; ?></td>
                     <td><?php echo $row['message']; ?></td>
                 </tr>

@@ -37,6 +37,7 @@
           <li><a class="link_name" href="">Employee</a></li>
           <li><a href="./sidebar.php?addEmployee">Add Employee</a></li>
           <li><a href="./sidebar.php?viewEmployee">View Employee</a></li>
+          <li><a href="./sidebar.php?checkAvailability">Availability</a></li>
 
         </ul>
       </li>
@@ -91,6 +92,26 @@
         </ul>
       </li>
       <li>
+
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+          <i class='bx bx-package'></i>
+            <span class="link_name">Packages</span>
+           
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+          <!--<i class='bx bxs-chevron-down arrow' ></i>-->
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Packages</a></li>
+          <li><a href="./sidebar.php?addPackages">Add Packages</a></li>
+          <li><a href="./sidebar.php?viewPackages">View Packages</a></li>
+         <!-- <li><a href="#">Pigments</a></li>
+          <li><a href="#">Box Icons</a></li>-->
+        </ul>
+      </li>
+      <li>
         <a href="#">
           <i class='bx bx-folder-open'></i>
           <span class="link_name">Reviews</span>
@@ -99,6 +120,7 @@
           <li><a class="link_name" href="./sidebar.php?reviews">Reviews</a></li>
         </ul>
       </li>
+     <!--  
       <li>
         <a href="./sidebar.php?reports">
           <i class='bx bxs-report'></i>
@@ -107,14 +129,14 @@
         <ul class="sub-menu blank">
           <li><a class="link_name" href="./sidebar.php?reports">Reports</a></li>
         </ul>
-      </li>
+      </li>-->
 
 
 
       <li>
         <a href="./sidebar.php?messageView">
         <i class='bx bxs-message-dots'></i>
-          <span class="link_name">Message</span>
+          <span class="link_name">Messages</span>
         </a>
         <ul class="sub-menu blank">
           <li><a class="link_name" href="./sidebar.php?messageView">Messages</a></li>
@@ -204,7 +226,18 @@
 
       include("viewRequests.php");
     }
+    if (isset($_GET['addPackages'])) {
 
+      include("AddPackages.php");
+    }
+    if (isset($_GET['viewPackages'])) {
+
+      include("ViewPackages.php");
+    }
+    if (isset($_GET['checkAvailability'])) {
+
+      include("checkAvailability.php");
+    }
 
 
 

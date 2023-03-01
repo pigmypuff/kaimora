@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
     //echo "Error adding review: " . mysqli_error($conn);
   }
 }
-
+error_reporting(E_ALL & ~E_NOTICE);
 ?>
 
 <!DOCTYPE html>

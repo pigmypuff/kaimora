@@ -51,6 +51,7 @@ if (isset($_POST['accept'])) {
                 <th>Package</th>
                 <th>User email</th>
                 <th> Status </th>
+                <th>Payment Status</th>
             </tr>
         </thead>
 
@@ -86,6 +87,7 @@ if (isset($_POST['accept'])) {
                         }
                         ?>
                     </td>
+                    <td><?php echo $row['payment_status'] ?></td>
 
 
                 </tr>

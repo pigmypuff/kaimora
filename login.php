@@ -31,7 +31,7 @@
             
                 if ($email != "" && $pass != ""){
 
-                    $sql_query = "select Id from emp where (email='$email') AND (password='$pass')" ;
+                    $sql_query = "select Id from employee where (email='$email') AND (password='$pass')" ;
                 
                 
                     $result = mysqli_query($conn,$sql_query) or trigger_error("query failed SQL: $sql_query - Error : ".mysqli_error($conn), E_USER_ERROR);

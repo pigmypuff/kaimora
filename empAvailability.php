@@ -16,7 +16,7 @@ function sanitize_input($data) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // Retrieve and sanitize employee ID
-  $email = sanitize_input($_POST["email"]);
+ // $email = sanitize_input($_POST["email"]);
 
   // Retrieve selected dates from form and sanitize them
   $selected_dates = $_POST["selected_dates"];
@@ -34,9 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
   $sql .= implode(", ", $date_values);
   if (mysqli_query($conn, $sql)) {
-    echo "Available dates added successfully<br>";
+    //echo "Available dates added successfully<br>";
   } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+   // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
 
 }
@@ -50,24 +50,28 @@ mysqli_close($conn);
 <head>
   <title>Kaimora Weddings</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
-   
+  <link rel="stylesheet" type="text/css" href="formstyle.css"> 
 </head>
 <body>
-
-  <h1>Add Available Dates</h1>
+<div class="commonClass1" style="background-color:#7A7CA4; 
+     color: white;">
+    <header><h2 style="padding-left: 50px;">Add Availability </h2></header>  
+    </div>
+    <div class="commonClass" style=" border-bottom-right-radius: 20px;
+    border-bottom-left-radius:20px; ">
 
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-
+<!--
    <label for="email">Email:</label>
 
     <input type="email" id="email" name="email" value="<?php echo $email; ?>" >
 
-    <br><br>
-
+    <br><br>-->
+    <div class="innerDiv">
     <label for="selected_dates">Select Dates:</label>
     <input type="text" id="selected_dates" name="selected_dates[]" readonly>
     <br><br>
-
+    </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
@@ -84,11 +88,11 @@ mysqli_close($conn);
     $('#selected_dates').val(formattedDates.join(','));
   });
 </script>
-
+<div class="innerDiv">
     <input type="submit" value="Submit">
-
+</div>
   </form>
-
+    </div>
 </body>
 </html>
 

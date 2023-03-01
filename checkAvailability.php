@@ -38,20 +38,30 @@ mysqli_close($conn);
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kaimora Weddings - Admin Page</title>
+  <title>Kaimora Weddings </title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="formstyle.css"> 
 </head>
 <body>
-
-  <h1>Admin Page</h1>
-
+<div class="commonClass1" style="background-color:#7A7CA4; 
+     color: white;">
+    <header><h2 style="padding-left: 50px;">Employee Availability </h2></header>  
+    </div>
+    <div class="commonClass" style=" border-bottom-right-radius: 20px;
+    border-bottom-left-radius:20px; ">
+ 
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 
+    
+
+    <div class="innerDiv">
     <label for="search_date">Search Date:</label>
     <input type="text" id="search_date" name="search_date" placeholder="YYYY-MM-DD" required> 
     <br><br>
-
+        </div>
+<div class="innerDiv">
     <input type="submit" value="Search">
+</div>
     <!-- Display available employees -->
 <?php if(isset($result) && mysqli_num_rows($result) > 0): ?>
   <h2>Available Employees on <?php echo $search_date; ?></h2>
@@ -63,6 +73,6 @@ mysqli_close($conn);
 <?php endif; ?>
 
   </form>
-
+    </div>
 </body>
 </html>

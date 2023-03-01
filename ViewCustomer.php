@@ -42,8 +42,8 @@
                                        
                                         <td>
                                             
-                                            <!--  <a class="btn btn-info" href="updateStaff.php ?UserID=</?php echo $row['UserID']; ?>"  >Edit</a>&nbsp;&nbsp;
-                                                <a class="btn btn-danger" href="deleteEmployee.php ?UserID=</?php echo $row['UserID']; ?>">Delete</a> -->
+                                             <a class="btn btn-info" href="updateStaff.php ?name=</?php echo $row['name']; ?>"  >Edit</a>&nbsp;&nbsp;
+                                                <a class="btn btn-danger" href="deleteEmployee.php ?name=</?php echo $row['name']; ?>">Delete</a> 
                                             
                                             
                                         </td>
