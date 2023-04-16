@@ -1,7 +1,6 @@
 <?php
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
-  
 }
 //session_start();
 include "config.php";
@@ -65,7 +64,7 @@ $result = $conn->query($sql);
             </div>
           </div>
 
-        
+
 
           <div class="col-lg-6 mb-4">
             <div class="card ">
@@ -97,7 +96,7 @@ $result = $conn->query($sql);
                     while ($row = $result->fetch_assoc()) {
                     ?>
                       <tr>
-                        
+
                         <td><?php echo $name; ?></td>
                         <td><?php echo $row['submittedDate']; ?></td>
                         <td><?php
@@ -110,33 +109,38 @@ $result = $conn->query($sql);
                             }
                             ?>
                         </td>
-                         
+
                         <td>
                           <?php
-                            if ($row['accepted'] == 0) {
-                            ?>
+                          if ($row['accepted'] == 0) {
+                          ?>
 
-                            <button type="button" class="btn btn-light" disabled >Pay Advance Amount</button>
-                            <?php
-                                                                                                          } ?>
+                            <button type="button" class="btn btn-light" disabled>Pay Advance Amount</button>
+                          <?php
+                          } ?>
                           <?php if ($row['accepted'] == 1 && $row['payment_status'] == "no payments") {
                           ?>
-                                                                                       
-                        <button type="button" class="btn btn-light" onclick="location.href='payment.php?status=advance&packageName=<?php echo $row['Package_name']; ?>'">Pay Advance Amount</button> 
-                       
-                        <?php
-                                                                                                          }?>
-                                                                                                        <?php  if ($row['accepted'] == 1 && $row['payment_status'] == "advance payment") {
-                                                                                                    ?>
+
+                            <button type="button" class="btn btn-light" onclick="location.href='payment.php?status=advance&packageName=<?php echo $row['Package_name']; ?>'">Pay Advance Amount</button>
+
+                          <?php
+                          } ?>
+                          <?php if ($row['accepted'] == 1 && $row['payment_status'] == "advance payment") {
+                          ?>
                             <button type="button" class="btn btn-light" onclick="location.href='payment.php?status=remaining&packageName=<?php echo $row['Package_name']; ?>'">Pay Remaining Amount</button>
-                          
-
-                            <?php
-                                                                                                          }
 
 
+                          <?php
+                          }
+                          ?>
+                          <?php if ($row['accepted'] == 1 && $row['payment_status'] == "full payment") {
+                          ?>
+                            <button type="button" class="btn btn-light" disabled>Completed</button>
 
-                                                                                                      ?>
+
+                          <?php
+                          }
+                          ?>
                         </td>
                       </tr>
                     <?php

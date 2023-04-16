@@ -41,7 +41,7 @@
 
         </ul>
       </li>
-      <li>
+     <!-- <li>
         <div class="iocn-link">
           <a href="#">
             <i class='bx bxs-bookmarks'></i>
@@ -54,7 +54,7 @@
           <li><a href="./sidebar.php?addBooking">Add Bookings</a></li>
           <li><a href="#">View bookings</a></li>
         </ul>
-      </li>
+      </li>-->
 
       <li>
         <a href="./sidebar.php?viewPayments">
@@ -114,7 +114,7 @@
         </ul>
       </li>
       <li>
-        <a href="#">
+        <a href="./sidebar.php?reviews">
           <i class='bx bx-folder-open'></i>
           <span class="link_name">Reviews</span>
         </a>
@@ -184,11 +184,7 @@
 
 
 
-    <!-- Calendly inline widget begin 
-<div class="calendly-inline-widget" data-url="https://calendly.com/ienanayakkara97?hide_landing_page_details=1&hide_gdpr_banner=1" style="min-width:320px;height:630px;"></div>
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<!-- Calendly inline widget end -->
-
+   
     <?php
     if (isset($_GET['addEmployee'])) {
 

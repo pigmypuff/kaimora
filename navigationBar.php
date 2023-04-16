@@ -56,7 +56,6 @@
                   <!--<li><a class="dropdown-item" href="customerLogin.php">Log In</a></li>-->
                   <li><a class="dropdown-item" href="./navigationBar.php?requestStatus">Request Status</a></li>
                   <li><a class="dropdown-item" href="./navigationBar.php?packages">Package Details</a></li>
-                  <li><a class="dropdown-item" href="#">Payments</a></li>
                   <li><a class="dropdown-item" href="./navigationBar.php?addReview">Reviews</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
@@ -130,9 +129,9 @@
 
       include("packages.php");
     } 
-    //*if (isset($_GET['customerLogin'])) {
+   /* if (isset($_GET['customerLogin'])) {
 
-      /*include("customerLogin.php");
+      include("customerLogin.php");
     }  */
     
     ?>

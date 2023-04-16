@@ -37,14 +37,18 @@ $difference = $row_payment['difference'];
 
   if($status === "remaining"){
     $sql = "UPDATE payments SET full_paymentDate='$submit_date' WHERE user_email='$email' and package_name='$packageName'";
+    $sql1 = "UPDATE requests SET payment_status='full payment' WHERE user_email='$email' and Package_name='$packageName' ";
+  
   }else if($status === "advance"){
-    $sql = "UPDATE payments SET advance_amount = '$difference', advance_paymentDate='$submit_date',full_payment='$amount' WHERE user_email='$email' and package_name='$packageName'";
+    $sql = "INSERT INTO payments(advance_amount,advance_paymentDate,full_amount,user_email,package_name) VALUES ('$difference','$submit_date','$amount','$email','$packageName')";
+    $sql1 = "UPDATE requests SET payment_status='advance payment' WHERE user_email='$email' and Package_name='$packageName' ";
   }
 
 
     $result =   $conn->query($sql);
+    $result2 =   $conn->query($sql1);
 
-    if ($result == TRUE) {
+    if ($result == TRUE && $result2==TRUE) {
 
         echo "New record created successfully";
         header("Location: navigationBar.php?requestStatus");

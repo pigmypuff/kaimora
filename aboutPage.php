@@ -19,7 +19,7 @@
 <div class="carousel-inner">
     <!-- Single item -->
     <div class="carousel-item active">
-      <img src="about.jpg" class="d-block w-100 opacity-80 " data-mdb-toggle="animation" data-mdb-animation-reset="true" data-mdb-animation="slide-out-right"alt=""/>
+      <img src="about.jpg" class="d-block w-100 opacity-60 " data-mdb-toggle="animation" data-mdb-animation-reset="true" data-mdb-animation="slide-out-right"alt=""/>
       <div class="carousel-caption d-none d-md-block">
         <h5>ABOUT  US</h5>
         
