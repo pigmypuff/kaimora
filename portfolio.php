@@ -29,7 +29,7 @@
       <div class="col-sm-6">
         <form class="form-inline d-flex justify-content-center">
           <input class="form-control mr-2" id="filter" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i>Search</button>
+          <!-- <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i>Search</button> -->
         </form>
       </div>
     </div>
@@ -46,8 +46,8 @@
     <div class="carousel-item active">
       <div class="container">
         <div class="row">
-          <div class="col-lg-4" data-filter-text="Nikini Pamod">
-            <div class="card" id="card">
+          <div class="col-lg-4" >
+            <div class="cards" id="card" data-filter-text="Engagement ">
               <img src="gallery1/1.jpg " class="card-img-top " alt="" style="height: 32rem;" />
               <div class="card text-center">
                 <div class="card-body">
@@ -62,7 +62,7 @@
           </div>
 
           <div class="col-lg-4 d-none d-lg-block">
-            <div class="card">
+            <div class="cards" id="card2" data-filter-text="Pre wedding ">
               <img src="gallery2/8.jpg" class="card-img-top" alt="" style="height: 32rem;" />
               <div class="card text-center">
                 <div class="card-body">
@@ -77,7 +77,7 @@
           </div>
 
           <div class="col-lg-4 d-none d-lg-block">
-            <div class="card">
+            <div class="cards" data-filter-text="Wedding ">
               <img src="gallery3/1.jpg" class="card-img-top" alt="" style="height: 32rem;" />
               <div class="card text-center">
                 <div class="card-body">
@@ -116,7 +116,7 @@
   <script>
     // Get the search bar and cards
     const searchBar = document.getElementById('filter');
-    const cards = document.querySelectorAll('.card');
+    const cards = document.getElementsByClassName('cards');
 
     // Listen to the search bar's input event
     searchBar.addEventListener('input', function(event) {
@@ -124,19 +124,20 @@
       const searchTerm = event.target.value.toLowerCase();
 
       // Iterate over the cards
-      cards.forEach(function(card) {
+      for (i = 0; i < cards.length; i++) { 
+        
         // Get the card's data-filter-text attribute value
-        const filterText = card.getAttribute('data-filter-text').toLowerCase();
+        const filterText = cards[i].getAttribute('data-filter-text').toLowerCase();
 
         // Check if the filter text contains the search term
         if (filterText.includes(searchTerm)) {
           // If it does, set the card's display style to block
-          card.style.display = 'block';
+          cards[i].style.display = 'block';
         } else {
           // If it doesn't, set the card's display style to none
-          card.style.display = 'none';
+          cards[i].style.display = 'none';
         }
-      });
+      };
     });
   </script>
 

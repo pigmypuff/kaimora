@@ -69,7 +69,8 @@ if (isset($_POST['form_submitted'])) {
         window.onload = function() {
             document.getElementById('submitForm').addEventListener('click', function(event) {
 
-                var data = {
+                if(validateForm()){
+ var data = {
                     service_id: 'service_mm4fp0s',
                     template_id: 'template_db10v56',
                     user_id: 'TsPnV9qqo03Jnn5kJ',
@@ -92,13 +93,17 @@ if (isset($_POST['form_submitted'])) {
                     console.log(res)
 
                     setTimeout(() => {
-                         document.getElementById('requestForm').submit()
+ document.getElementById('requestForm').submit()
+
                         
                     }, 500);
                 })
                 .catch(error=>{
                     console.log(error)
                 })
+                }
+
+               
 
                 
                 // // generate a five digit number for the contact_number variable
@@ -116,6 +121,69 @@ if (isset($_POST['form_submitted'])) {
            
         }
     </script> 
+    <script>
+function validateForm() {
+  let to_name = document.forms["requestForm"]["to_name"].value;
+  var gname=document.forms["requestForm"]["gname"].value;
+       var time=document.forms["requestForm"]["time"].value;
+       var location=document.forms["requestForm"]["location"].value;
+       var to_email=document.forms["requestForm"]["to_email"].value;
+       var date=document.forms["requestForm"]["date"].value;
+       var Package_name=document.forms["requestForm"]["Package_name"].value;
+       var message=document.forms["requestForm"]["message"].value;
+     if(to_name==""){
+               alert("Bride Name is required! ");
+               return false;
+       }else if(!isNaN(to_name)){
+               alert(" A valid Name is required! ");
+               return false;
+       }
+
+        if(gname==""){
+               alert("Groom Name is required! ");
+               return false;   
+       }else if(!isNaN(gname)){
+               alert(" A valid Name is required! ");
+               return false;
+       }
+
+       if(time==""){
+               alert("Time is required! ");
+               return false;   
+       }
+
+       if(location==""){
+               alert("Location is required! ");
+               return false;   
+       }
+
+       if(to_email==""){
+               alert("Email Address is required !! ");
+               return false;
+          }else{
+            var regEmail=/^([a-zA-Z0-9\._]+)@([a-zA-Z0-9])+.([a-z]+)(.[a-z]+)?$/;
+            if(!regEmail.test(to_email)){
+                alert("A valid Email Address is required !! ");
+               return false;
+            }
+          }
+
+        if(date==""){
+               alert("Date is required! ");
+               return false;   
+       }
+
+        if(Package_name==""){
+               alert("Package name is required! ");
+               return false;   
+       }
+
+
+
+    return true;
+  
+}
+</script>
   
 </head>
 
@@ -165,7 +233,7 @@ if (isset($_POST['form_submitted'])) {
                             <div>
                                 <div class="innerDiv col pt-md">
                                     <label for="bname">Bride's Name</label><br>
-                                    <input type="text" id="to_name" name="to_name" placeholder="">
+                                    <input type="text" id="to_name" name="to_name" placeholder="" required>
                                 </div>
 
 
@@ -262,8 +330,6 @@ if (isset($_POST['form_submitted'])) {
     </main>
     <!--Main layout-->
 
-
-    
   
 </body>
 
