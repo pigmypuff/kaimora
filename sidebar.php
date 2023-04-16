@@ -55,15 +55,17 @@
           <li><a href="#">View bookings</a></li>
         </ul>
       </li>
+
       <li>
-        <a href="#">
+        <a href="./sidebar.php?viewPayments">
           <i class='bx bxs-credit-card-alt'></i>
           <span class="link_name">Payments</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Payments</a></li>
+          <li><a class="link_name" href="./sidebar.php?viewPayments">Payments</a></li>
         </ul>
       </li>
+
       <li>
         <a href="./sidebar.php?viewRequests">
           <i class='bx bxs-book-open'></i>
@@ -237,6 +239,10 @@
     if (isset($_GET['checkAvailability'])) {
 
       include("checkAvailability.php");
+    }
+    if (isset($_GET['viewPayments'])) {
+
+      include("viewPayments.php");
     }
 
 

@@ -1,10 +1,13 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 // connect to database
-session_start();
+//session_start();
 include "config.php";
 
 $logedInUseremail = $_SESSION['email'];
-echo $logedInUseremail;
+//echo $logedInUseremail;
 
 if (isset($_POST['form_submitted'])) {
     // retrieve form data
@@ -34,10 +37,11 @@ if (isset($_POST['form_submitted'])) {
 
         echo "New record created successfully";
         header("Location: navigationBar.php?requestStatus");
-        
+       
     } else {
         echo "Error:" . $sql . "<br>" . $conn->error;
     }
+   
 }
 ?>
 

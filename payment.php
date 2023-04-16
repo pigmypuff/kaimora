@@ -27,7 +27,7 @@ $row_payment = $result_payment->fetch_assoc();
 $difference = $row_payment['difference'];
 }
 
-// echo $difference;
+//echo $difference;
 
 
 
@@ -73,7 +73,7 @@ $difference = $row_payment['difference'];
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <script type="text/javascript">
@@ -87,7 +87,7 @@ $difference = $row_payment['difference'];
                     user_id: 'TsPnV9qqo03Jnn5kJ',
                     template_params: {
                         'to_name': '<?php echo $name?>',
-                        'to_email':'<?php echo $email?>',
+                        'to_email':'imasha50@gmail.com',
                         'message': 'We received your payment of <?php echo $difference?>. Your payment is successfull !',
                     }
                 };
@@ -135,7 +135,7 @@ $difference = $row_payment['difference'];
             <div class="row">
 
               <div class="col-lg-7">
-                <h5 class="mb-3"><a href="#!" class="text-body"><i
+                <h5 class="mb-3"><a href="navigationBar.php?requestStatus" class="text-body"><i
                       class="fas fa-long-arrow-alt-left me-2"></i>Go Back</a></h5>
                 <hr>
 

@@ -1,5 +1,8 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+//session_start();
 include "config.php";
 $logedInUseremail = $_SESSION['email'];
 //echo $logedInUseremail;
@@ -12,10 +15,12 @@ if (isset($_POST['submit'])) {
   $sql = "INSERT INTO reviews (message, user_email,date_created) VALUES ('$message', '$logedInUseremail','$submit_date')";
   if (mysqli_query($conn, $sql)) {
    // echo "Review added successfully";
+   echo '<script>$(document).ready(function(){toastr.success("Review added successfully");});</script>';
   } else {
     //echo "Error adding review: " . mysqli_error($conn);
   }
 }
+
 error_reporting(E_ALL & ~E_NOTICE);
 ?>
 
@@ -29,7 +34,8 @@ error_reporting(E_ALL & ~E_NOTICE);
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 </head>
 
@@ -66,7 +72,7 @@ error_reporting(E_ALL & ~E_NOTICE);
                   <br><br>
                   <h5 class="card-title">Tell us what you think about us!</h5>
                   <div class="form-group">
-                    <textarea name="message" class="form-control" id="message" cols="30" rows="12" placeholder=""></textarea>
+                    <textarea name="message" class="form-control" id="message" cols="30" rows="12" placeholder="" required></textarea>
                   </div>
                   <br>
 

@@ -16,7 +16,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-<title>Kaimora Weddings</title>
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <title>Kaimora Weddings</title>
 
 
 </head>
@@ -45,12 +46,14 @@
           <li class="nav-item">
             <a class="nav-link" href="./navigationBar.php?view">Contact Us</a>
           </li>
+          <?php if (isset($_SESSION['email'])) { ?>
           <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Account
                 </a>
+               
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="customerLogin.php">Log In</a></li>
+                  <!--<li><a class="dropdown-item" href="customerLogin.php">Log In</a></li>-->
                   <li><a class="dropdown-item" href="./navigationBar.php?requestStatus">Request Status</a></li>
                   <li><a class="dropdown-item" href="./navigationBar.php?packages">Package Details</a></li>
                   <li><a class="dropdown-item" href="#">Payments</a></li>
@@ -58,7 +61,14 @@
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
                 </ul>
+               
               </li> 
+              <?php } else { ?>
+                <li class="nav-item">
+                        <a class="nav-link" href="customerLogin.php">Log In</a>
+                    </li>
+                <?php } ?>
+            </ul>
              <!-- <li class="nav-item">
                 <a class="nav-link disabled">Disabled</a>
               </li>
@@ -70,7 +80,11 @@
       </div>
       <div class="navbar bg-light">
         <form class="container-fluid justify-content-start">
+        <?php if (isset($_SESSION['email'])) { ?>
           <a href="./navigationBar.php?requestForm">
+          <?php } else { ?>
+            <a href="customerLogin.php">
+                <?php } ?>
           <button class="btn btn-sm btn-outline-secondary mx-2" type="button">Requst a Quote </button></a>
         </form>
       </div>
@@ -127,6 +141,16 @@
 
 </body>
 
+<footer class="bg-dark text-center text-white">
+  <!-- Grid container -->
+  
+  <!-- Grid container -->
 
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © Kaimora Weddings
+    
+  </div>
+
+</footer>
 
 </html>

@@ -25,80 +25,7 @@
           <li><a class="link_name" href="#">Dashboard</a></li>
         </ul>
       </li>
-     <!-- <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class='bx bxs-user-detail'></i>
-            <span class="link_name">Employee</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow'></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="">Employee</a></li>
-          <li><a href="./sidebar.php?addEmployee">Add Employee</a></li>
-          <li><a href="./sidebar.php?viewEmployee">View Employee</a></li>
-
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class='bx bxs-bookmarks'></i>
-            <span class="link_name">Bookings</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow'></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Bookings</a></li>
-          <li><a href="./sidebar.php?addBooking">Add Bookings</a></li>
-          <li><a href="#">View bookings</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bxs-credit-card-alt'></i>
-          <span class="link_name">Payments</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Payments</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="./sidebar.php?viewRequests">
-          <i class='bx bxs-book-open'></i>
-          <span class="link_name">Requests</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="./sidebar.php?viewRequests ">Requests</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class='bx bxs-user-detail'></i>
-            <span class="link_name">Customers</span>
-           
-          </a>
-          <i class='bx bxs-chevron-down arrow'></i>
-      <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Customers</a></li>
-          <li><a href="./sidebar.php?addCustomer">Add Customer</a></li>
-          <li><a href="./sidebar.php?viewCustomer">View Customer</a></li>
-         <li><a href="#">Pigments</a></li>
-          <li><a href="#">Box Icons</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-folder-open'></i>
-          <span class="link_name">Reviews</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="./sidebar.php?reviews">Reviews</a></li>
-        </ul>
-      </li>-->
+    
       <li>
         <a href="./sidebarEmp.php?viewEvents">
           <i class='bx bxs-report'></i>
@@ -112,12 +39,12 @@
 
 
       <li>
-        <a href="./sidebarEmp.php?availability">
+        <a href="./sidebarEmp.php?empAvailability">
         <i class='bx bxs-message-dots'></i>
           <span class="link_name">Availability</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="./sidebarEmp.php?availability">Availability</a></li>
+          <li><a class="link_name" href="./sidebarEmp.php?empAvailability">Availability</a></li>
         </ul>
       </li>
 
@@ -161,42 +88,16 @@
 
 
     <?php
-    if (isset($_GET['addEmployee'])) {
-
-      include("AddEmployee.php");
-    }
-
-    if (isset($_GET['viewEmployee'])) {
-
-      include("viewEmployee.php");
-    }
     
-    if (isset($_GET['viewCustomer'])) {
-
-      include("ViewCustomer.php");
-    }
-    if (isset($_GET['reviews'])) {
-
-      include("reviews.php");
-    }
-
-    if (isset($_GET['messageView'])) {
-
-      include("messageView.php");
-    }
-    if (isset($_GET['addCustomer'])) {
-
-      include("AddCustomer.php");
-    }
-    if (isset($_GET['addBooking'])) {
-
-      include("AddBooking.php");
-    }
+   
     if (isset($_GET['viewEvents'])) {
 
       include("viewEvents.php");
     }
+    if (isset($_GET['empAvailability'])) {
 
+      include("empAvailability.php");
+    }
 
 
 

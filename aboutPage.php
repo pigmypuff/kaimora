@@ -8,19 +8,28 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
-
+	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 
 </head>
 
 <body>
 
+<div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+<div class="carousel-inner">
+    <!-- Single item -->
+    <div class="carousel-item active">
+      <img src="about.jpg" class="d-block w-100 opacity-80 " data-mdb-toggle="animation" data-mdb-animation-reset="true" data-mdb-animation="slide-out-right"alt=""/>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>ABOUT  US</h5>
+        
+      </div>
+    </div>
+</div>
+</div>
 
 
-
-	<div class="image-section">
-
-	</div>
+	
 
 	<main class="my-5">
 		<div class="container">

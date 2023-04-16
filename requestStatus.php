@@ -1,5 +1,9 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+  
+}
+//session_start();
 include "config.php";
 // if (isset($_SESSION['name'])) {
 $name = $_SESSION['name'];

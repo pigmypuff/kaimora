@@ -45,6 +45,7 @@
                         $_SESSION["login"]="1";
                        // $_SESSION['Id'] = $row['Id'];
                         $_SESSION['name'] = $row['name'];
+                        $_SESSION["authenticated"] = true;
 
              
                        header('Location:navigationBar.php?carousal');
