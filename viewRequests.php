@@ -90,7 +90,7 @@ if (isset($_POST['accept'])) {
                     </td>
                     <td><?php echo $row['payment_status'] ?></td>
                     <td>
-                    <a class="btn btn-outline-success" href="#"  >Check Availability</a>
+                    <a class="btn btn-outline-success" onclick="location.href='checkAvailability.php?date=<?php echo $row['date']; ?>&requestId=<?php echo $row['Request_id']; ?>'" >Check Availability</a>
                          
                     </td>
                     <td>
