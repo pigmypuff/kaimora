@@ -7,10 +7,7 @@ $email = $_SESSION['email'];
 $result = null;
 
 
-  // Run SQL query to select employees available on search date
-//   $sql = "SELECT emp_availability.available_date, emp_availability.assign_to FROM emp_availability WHERE emp_availability.email = '$email' ; ";
 $sql ="SELECT ea.available_date, r.Request_id, r.event_type, r.time, r.location,r.Package_name,r.email FROM emp_availability AS ea LEFT JOIN requests AS r ON ea.assign_to = r.Request_id WHERE ea.email = 'kasun@gmail.com'; ";
-  // $sql = "SELECT email, available_date FROM emp_availability WHERE available_date = '$date'";
   $result=$conn->query($sql);
 
  
