@@ -52,6 +52,7 @@ if (isset($_POST['accept'])) {
                 <th>User email</th>
                 <th> Status </th>
                 <th>Payment Status</th>
+                <th>Availability</th>
             </tr>
         </thead>
 
@@ -88,6 +89,10 @@ if (isset($_POST['accept'])) {
                         ?>
                     </td>
                     <td><?php echo $row['payment_status'] ?></td>
+                    <td>
+                    <a class="btn btn-outline-success" href="#"  >Check Availability</a>
+                         
+                    </td>
                     <td>
                         <a class="btn btn-info" href="editRequest.php ?Request_id=<?php echo $row['Request_id']; ?>"  >Edit</a>&nbsp;&nbsp;
                         <a class="btn btn-danger" href="deleteEmployee.php ?Request_id=<?php echo $row['Request_id']; ?>">Delete</a> 

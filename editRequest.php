@@ -103,6 +103,10 @@
                 <label for="package">Package</label><br>
                 <input type="text" id="package" name="package" value="<?php echo $Package_name; ?>" placeholder="Enter package ">
             </div>
+            <div class="innerDiv">
+                <label for="accepted">Status</label><br>
+                <input type="text" id="accepted" name="accepted" value="<?php echo $accepted; ?>" placeholder="Enter status ">
+            </div>
 
 
 
