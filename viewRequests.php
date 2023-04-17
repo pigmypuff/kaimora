@@ -90,15 +90,13 @@ if (isset($_POST['accept'])) {
                     </td>
                     <td><?php echo $row['payment_status'] ?></td>
                     <td>
-                    <a class="btn btn-outline-success" onclick="location.href='checkAvailability.php?date=<?php echo $row['date']; ?>&requestId=<?php echo $row['Request_id']; ?>'" >Check Availability</a>
-                         
+                        <a class="btn btn-outline-success" onclick="location.href='checkAvailability.php?date=<?php echo $row['date']; ?>&requestId=<?php echo $row['Request_id']; ?>'">Check Availability</a>
+
                     </td>
                     <td>
-                        <a class="btn btn-info" href="editRequest.php ?Request_id=<?php echo $row['Request_id']; ?>"  >Edit</a>&nbsp;&nbsp;
-                        <a class="btn btn-danger" href="deleteRequests.php ?Request_id=<?php echo $row['Request_id']; ?>">Delete</a> 
-                                            
-                                            
-                                        </td>
+                        <a class="btn btn-outline-secondary" href="editRequest.php ?Request_id=<?php echo $row['Request_id']; ?>">Edit</a>&nbsp;&nbsp;
+                        <a class="btn btn-outline-danger" href="deleteRequests.php ?Request_id=<?php echo $row['Request_id']; ?>">Delete</a>
+                    </td>
 
 
                 </tr>
