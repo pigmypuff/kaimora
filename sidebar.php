@@ -17,12 +17,12 @@
     </div>
     <ul class="nav-links">
       <li>
-        <a href="#">
+        <a href="./sidebar.php?dashboard">
           <i class='bx bx-grid-alt'></i>
           <span class="link_name">Dashboard</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Dashboard</a></li>
+          <li><a class="link_name" href="./sidebar.php?dashboard">Dashboard</a></li>
         </ul>
       </li>
       <li>
@@ -239,6 +239,10 @@
     if (isset($_GET['viewPayments'])) {
 
       include("viewPayments.php");
+    }
+    if (isset($_GET['dashboard'])) {
+
+      include("dashboard.php");
     }
 
 

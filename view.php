@@ -7,6 +7,10 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="contactus.css">
 	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  
 	<title>Contact Us!</title>
 
 </head>
@@ -35,6 +39,7 @@
 
 		if ($result == TRUE) {
 			echo "New record created successfully";
+			echo '<script>$(document).ready(function(){toastr.success("We received your message!");});</script>';
 			header("location: ./navigationBar.php?view");
 		} else {
 			echo "Error:" . $sql . "<br>" . $conn->error;

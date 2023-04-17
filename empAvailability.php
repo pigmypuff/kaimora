@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   // Insert selected dates into MySQL database
+ 
   $sql = "INSERT INTO emp_availability (email, available_date) VALUES ";
   $date_values = array();
   foreach ($sanitized_dates as $date) {
@@ -36,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (mysqli_query($conn, $sql)) {
     //echo "Available dates added successfully<br>";
   } else {
-   // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
 
 }
@@ -60,7 +61,7 @@ mysqli_close($conn);
     <div class="commonClass" style=" border-bottom-right-radius: 20px;
     border-bottom-left-radius:20px; ">
 
-  <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+  <form method="post" action="./sidebarEmp.php?empAvailability">
 <!--
    <label for="email">Email:</label>
 

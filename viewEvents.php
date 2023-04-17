@@ -2,7 +2,7 @@
 //session_start();
 include "config.php";
 
-$sql = "SELECT * FROM requests WHERE accepted='1';";
+$sql = "SELECT * FROM requests;";
 
 $result = $conn->query($sql);
 

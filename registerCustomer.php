@@ -22,12 +22,13 @@ include "config.php";
       $email = $_POST['email'];
 
       $password = $_POST['password'];
+      $hashed_password = password_hash($password, PASSWORD_DEFAULT);
       
       $contact = $_POST['contact'];
      
       
       //SQL QUERY
-      $sql = "INSERT INTO customer(Name,  email, password,  contact) VALUES ('$Name','$email', '$password', '$contact');";
+      $sql = "INSERT INTO customer(Name,  email, password,  contact) VALUES ('$Name','$email', '$hashed_password', '$contact');";
        
       
       //Execute the query

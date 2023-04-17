@@ -152,6 +152,7 @@ $result = $conn->query($sql);
 
 
                 </table>
+               
 
 
 
@@ -160,12 +161,12 @@ $result = $conn->query($sql);
               <br>
               <br>
               <br>
-
+              <p>If details needs to be changed contact the team</p>
             </div>
           </div>
         </div>
 
-
+      
       </section>
       <!--Section: Content-->
 

@@ -13,6 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Run SQL query to select employees available on search date
   $sql = "SELECT email, available_date FROM emp_availability WHERE available_date = '$search_date'";
   $result=$conn->query($sql);
+
+ 
 }
 
 ?>
@@ -49,6 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <tr>
           <th>Email</th>
           <th>Available Date</th>
+          <th>Role</th>
         </tr>
       </thead>
       <tbody>
@@ -56,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <tr>
             <td><?php echo $row['email']; ?></td>
             <td><?php echo $row['available_date']; ?></td>
+
           </tr>
         <?php endwhile; ?>
       </tbody>
