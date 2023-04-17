@@ -228,6 +228,9 @@ function validateForm() {
 
                                 <input type="radio" class="btn-check" name="event_type" id="btnradio3" value="Casual Shoot" autocomplete="off">
                                 <label class="btn btn-outline-dark" for="btnradio3">Casual Shoot</label>
+                                <input type="radio" class="btn-check" name="event_type" id="btnradio4" value="Homecomming" autocomplete="off">
+                                <label class="btn btn-outline-dark" for="btnradio4">Homecomming</label>
+
                             </div>
 
                             <div>

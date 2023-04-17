@@ -33,15 +33,16 @@ include "config.php";
 
 
 
-    $sql_query = "select password from customer where (email='$email')";
+    $sql_query = "select name, password from customer where (email='$email')";
     $result = mysqli_query($conn, $sql_query);
     $row = mysqli_fetch_assoc($result);
     $hashed_password_from_db = $row['password'];
+    $name = $row['name'];
 
 
     if (password_verify($pass, $hashed_password_from_db)) {
       // password is correct, login the user
-      $row = mysqli_fetch_assoc($result);
+      //$row = mysqli_fetch_assoc($result);
       $_SESSION['email'] = $email;
       $_SESSION["login"] = "1";
       // $_SESSION['Id'] = $row['Id'];

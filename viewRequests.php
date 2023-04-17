@@ -95,7 +95,7 @@ if (isset($_POST['accept'])) {
                     </td>
                     <td>
                         <a class="btn btn-info" href="editRequest.php ?Request_id=<?php echo $row['Request_id']; ?>"  >Edit</a>&nbsp;&nbsp;
-                        <a class="btn btn-danger" href="deleteEmployee.php ?Request_id=<?php echo $row['Request_id']; ?>">Delete</a> 
+                        <a class="btn btn-danger" href="deleteRequests.php ?Request_id=<?php echo $row['Request_id']; ?>">Delete</a> 
                                             
                                             
                                         </td>
