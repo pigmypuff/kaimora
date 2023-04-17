@@ -4,8 +4,8 @@ include "config.php";
 
 $date = $_GET['date'];
 $requestId = $_GET['requestId'];
-echo $date;
-echo $requestId;
+// echo $date;
+// echo $requestId;
 
 $result = null;
 
