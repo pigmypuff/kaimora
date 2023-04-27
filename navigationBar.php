@@ -1,13 +1,10 @@
 <?php
 
-    session_start();
+session_start();
 
-    include "config.php";
-  
+include "config.php";
+
 ?>
-
-
-
 
 <!DOCTYPE html>
 
@@ -24,7 +21,6 @@
 
 
 <body>
-
 
   <nav class="navbar fixed-top navbar-expand-lg bg-light ">
     <div class="container-fluid">
@@ -46,29 +42,32 @@
           <li class="nav-item">
             <a class="nav-link" href="./navigationBar.php?view">Contact Us</a>
           </li>
+           <!-- If user is logged in, show dropdown menu for account options -->
           <?php if (isset($_SESSION['email'])) { ?>
-          <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Account
-                </a>
-               
-                <ul class="dropdown-menu">
-                  <!--<li><a class="dropdown-item" href="customerLogin.php">Log In</a></li>-->
-                  <li><a class="dropdown-item" href="./navigationBar.php?requestStatus">Request Status</a></li>
-                  <li><a class="dropdown-item" href="./navigationBar.php?packages">Package Details</a></li>
-                  <li><a class="dropdown-item" href="./navigationBar.php?addReview">Reviews</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
-                </ul>
-               
-              </li> 
-              <?php } else { ?>
-                <li class="nav-item">
-                        <a class="nav-link" href="customerLogin.php">Log In</a>
-                    </li>
-                <?php } ?>
-            </ul>
-             <!-- <li class="nav-item">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Account
+              </a>
+
+              <ul class="dropdown-menu">
+                <!--<li><a class="dropdown-item" href="customerLogin.php">Log In</a></li>-->
+                <li><a class="dropdown-item" href="./navigationBar.php?requestStatus">Request Status</a></li>
+                <li><a class="dropdown-item" href="./navigationBar.php?packages">Package Details</a></li>
+                <li><a class="dropdown-item" href="./navigationBar.php?addReview">Reviews</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
+              </ul>
+
+            </li>
+          <?php } else { ?>
+            <li class="nav-item">
+              <a class="nav-link" href="customerLogin.php">Log In</a>
+            </li>
+          <?php } ?>
+        </ul>
+        <!-- <li class="nav-item">
                 <a class="nav-link disabled">Disabled</a>
               </li>
             </ul>
@@ -79,36 +78,37 @@
       </div>
       <div class="navbar bg-light">
         <form class="container-fluid justify-content-start">
-        <?php if (isset($_SESSION['email'])) { ?>
-          <a href="./navigationBar.php?requestForm">
-          <?php } else { ?>
-            <a href="customerLogin.php">
-                <?php } ?>
-          <button class="btn btn-sm btn-outline-secondary mx-2" type="button">Requst a Quote </button></a>
+          <?php if (isset($_SESSION['email'])) { ?>
+            <a href="./navigationBar.php?requestForm">
+            <?php } else { ?>
+              <a href="customerLogin.php">
+              <?php } ?>
+              <button class="btn btn-sm btn-outline-secondary mx-2" type="button">Requst a Quote </button></a>
         </form>
       </div>
 
     </div>
   </nav>
-
+<!-- Main section with dynamic content -->
   <section>
 
 
     <?php
+    // Check which page to include based on GET parameters
     if (isset($_GET['portfolio'])) {
 
       include("portfolio.php");
-    } 
-    
+    }
+
     if (isset($_GET['view'])) {
 
       include("view.php");
     }
-    
+
     if (isset($_GET['carousal'])) {
 
       include("carousal.php");
-    } 
+    }
     if (isset($_GET['addReview'])) {
 
       include("addReview.php");
@@ -116,24 +116,24 @@
     if (isset($_GET['aboutPage'])) {
 
       include("aboutPage.php");
-    } 
+    }
     if (isset($_GET['requestForm'])) {
 
       include("requestForm.php");
-    } 
+    }
     if (isset($_GET['requestStatus'])) {
 
       include("requestStatus.php");
-    } 
+    }
     if (isset($_GET['packages'])) {
 
       include("packages.php");
-    } 
-   /* if (isset($_GET['customerLogin'])) {
+    }
+    /* if (isset($_GET['customerLogin'])) {
 
       include("customerLogin.php");
     }  */
-    
+
     ?>
 
   </section>
@@ -141,13 +141,9 @@
 </body>
 
 <footer class="bg-dark text-center text-white">
-  <!-- Grid container -->
-  
-  <!-- Grid container -->
-
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     © Kaimora Weddings
-    
+
   </div>
 
 </footer>

@@ -3,20 +3,23 @@
 session_start();
 include "config.php";
 
+// Retrieving session variables
 $email = $_SESSION['email'];
 $name = $_SESSION['name'];
 
- 
+// Retrieving values from the URL 
 $status = $_GET['status'];
 $packageName = $_GET['packageName'];
 $difference= 0 ;
 // echo '<script>let i = "' .$status. '"</script>';
 
+// Fetching the amount from the packages table based on the package name
 $sql_package = "SELECT amount FROM packages where package_name='$packageName'";
 $result_package = $conn->query($sql_package);
 $row_package = $result_package->fetch_assoc();
 $amount = $row_package['amount'];
 
+// Calculating the difference between full amount and advance amount
 if($status === "advance"){
 $difference = $amount*0.1;
 
@@ -30,11 +33,12 @@ $difference = $row_payment['difference'];
 //echo $difference;
 
 
-
+// Handling form submission
  if (isset($_POST['form_submitted'])) {
   $submit_date = date("Y-m-d H:i:s");
   echo $status;
 
+  // Updating payment details and request status based on the payment type
   if($status === "remaining"){
     $sql = "UPDATE payments SET full_paymentDate='$submit_date' WHERE user_email='$email' and package_name='$packageName'";
     $sql1 = "UPDATE requests SET payment_status='full payment' WHERE user_email='$email' and Package_name='$packageName' ";
@@ -44,7 +48,7 @@ $difference = $row_payment['difference'];
     $sql1 = "UPDATE requests SET payment_status='advance payment' WHERE user_email='$email' and Package_name='$packageName' ";
   }
 
-
+   // Executing the queries
     $result =   $conn->query($sql);
     $result2 =   $conn->query($sql1);
 

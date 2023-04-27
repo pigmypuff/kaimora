@@ -14,12 +14,14 @@
 
     if (isset($_REQUEST['Request_id'])) {
 
+        // Get the value of the "Request_id" parameter from the query string and store it in a variable
         $Request_id = $_REQUEST['Request_id'];
 
         $sql = "SELECT * FROM requests WHERE Request_id ='$Request_id'";
 
         $result = $conn->query($sql) or die($conn->error);
 
+        // Retrieve the values of various columns from the current row of the query result and store them in variables
         if ($row = $result->fetch_assoc()) {
             $event_type = $row['event_type'];
             $bride_name = $row['bride_name'];
@@ -36,6 +38,7 @@
 
     if (isset($_POST['update'])) {
 
+        // Retrieve the values of various form fields and store them in variables
         $bride_name = $_POST['bride_name'];
         $event_type = $_POST['event_type'];
         $groom_name = $_POST['groom_name'];

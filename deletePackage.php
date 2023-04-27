@@ -3,11 +3,10 @@ include "config.php";
 
 if(isset($_REQUEST['package_name'])){
     
-    
     $package_name = $_REQUEST['package_name'];
     
     //Query
-    
+
     $sql = "Delete FROM packages where package_name = '$package_name'";
     
     //Execute
@@ -22,7 +21,3 @@ if(isset($_REQUEST['package_name'])){
            echo "Error:". $sql. "<br>". $conn->error;
        }     
 }
-
-
-
-?>

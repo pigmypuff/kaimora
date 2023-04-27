@@ -16,13 +16,15 @@
 
 include "config.php";
 
+  // check if the form has been submitted
    if(isset($_POST['register'])){
       
+    // retrieve the input data from the form
       $Name = $_POST['name'];
       $email = $_POST['email'];
 
       $password = $_POST['password'];
-      $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+      $hashed_password = password_hash($password, PASSWORD_DEFAULT); // hash the password using PHP's built-in function
       
       $contact = $_POST['contact'];
      

@@ -37,11 +37,9 @@ if (isset($_POST['form_submitted'])) {
 
         echo "New record created successfully";
         header("Location: navigationBar.php?requestStatus");
-       
     } else {
         echo "Error:" . $sql . "<br>" . $conn->error;
     }
-   
 }
 ?>
 
@@ -54,9 +52,9 @@ if (isset($_POST['form_submitted'])) {
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
-   
 
- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <!-- <script type="text/javascript">
         (function() {
             // https://dashboard.emailjs.com/admin/account
@@ -65,50 +63,49 @@ if (isset($_POST['form_submitted'])) {
     </script> -->
 
     <script type="text/javascript">
-      
         window.onload = function() {
             document.getElementById('submitForm').addEventListener('click', function(event) {
 
-                if(validateForm()){
- var data = {
-                    service_id: 'service_mm4fp0s',
-                    template_id: 'template_db10v56',
-                    user_id: 'TsPnV9qqo03Jnn5kJ',
-                    template_params: {
-                        'to_name': document.getElementById("to_name").value,
-                        'to_email': document.getElementById("to_email").value,
-                    }
-                };
-                
-                fetch('https://api.emailjs.com/api/v1.0/email/send', {
-                    method: 'POST',
-                    headers:{
-                        "Content-type": 'application/json'
-                    },
-                    body: JSON.stringify(data),
-                  
-                })
-                .then(res=>res.text())
-                .then(res=>{
-                    console.log(res)
+                if (validateForm()) {
+                    var data = {
+                        service_id: 'service_mm4fp0s',
+                        template_id: 'template_db10v56',
+                        user_id: 'TsPnV9qqo03Jnn5kJ',
+                        template_params: {
+                            'to_name': document.getElementById("to_name").value,
+                            'to_email': document.getElementById("to_email").value,
+                        }
+                    };
 
-                    setTimeout(() => {
- document.getElementById('requestForm').submit()
+                    fetch('https://api.emailjs.com/api/v1.0/email/send', {
+                            method: 'POST',
+                            headers: {
+                                "Content-type": 'application/json'
+                            },
+                            body: JSON.stringify(data),
 
-                        
-                    }, 500);
-                })
-                .catch(error=>{
-                    console.log(error)
-                })
+                        })
+                        .then(res => res.text())
+                        .then(res => {
+                            console.log(res)
+
+                            setTimeout(() => {
+                                document.getElementById('requestForm').submit()
+
+
+                            }, 500);
+                        })
+                        .catch(error => {
+                            console.log(error)
+                        })
                 }
 
-               
 
-                
+
+
                 // // generate a five digit number for the contact_number variable
                 // this.contact_number = Math.random() * 100000 | 0;
-                
+
                 // emailjs.sendForm('service_mm4fp0s', 'template_db10v56', this)
                 //     .then(function() {
                 //         console.log('SUCCESS!');
@@ -118,73 +115,73 @@ if (isset($_POST['form_submitted'])) {
                 //         console.log('FAILED...', error);
                 //     });
             });
-           
+
         }
-    </script> 
+    </script>
     <script>
-function validateForm() {
-  let to_name = document.forms["requestForm"]["to_name"].value;
-  var gname=document.forms["requestForm"]["gname"].value;
-       var time=document.forms["requestForm"]["time"].value;
-       var location=document.forms["requestForm"]["location"].value;
-       var to_email=document.forms["requestForm"]["to_email"].value;
-       var date=document.forms["requestForm"]["date"].value;
-       var Package_name=document.forms["requestForm"]["Package_name"].value;
-       var message=document.forms["requestForm"]["message"].value;
-     if(to_name==""){
-               alert("Bride Name is required! ");
-               return false;
-       }else if(!isNaN(to_name)){
-               alert(" A valid Name is required! ");
-               return false;
-       }
-
-        if(gname==""){
-               alert("Groom Name is required! ");
-               return false;   
-       }else if(!isNaN(gname)){
-               alert(" A valid Name is required! ");
-               return false;
-       }
-
-       if(time==""){
-               alert("Time is required! ");
-               return false;   
-       }
-
-       if(location==""){
-               alert("Location is required! ");
-               return false;   
-       }
-
-       if(to_email==""){
-               alert("Email Address is required !! ");
-               return false;
-          }else{
-            var regEmail=/^([a-zA-Z0-9\._]+)@([a-zA-Z0-9])+.([a-z]+)(.[a-z]+)?$/;
-            if(!regEmail.test(to_email)){
-                alert("A valid Email Address is required !! ");
-               return false;
+        function validateForm() {
+            let to_name = document.forms["requestForm"]["to_name"].value;
+            var gname = document.forms["requestForm"]["gname"].value;
+            var time = document.forms["requestForm"]["time"].value;
+            var location = document.forms["requestForm"]["location"].value;
+            var to_email = document.forms["requestForm"]["to_email"].value;
+            var date = document.forms["requestForm"]["date"].value;
+            var Package_name = document.forms["requestForm"]["Package_name"].value;
+            var message = document.forms["requestForm"]["message"].value;
+            if (to_name == "") {
+                alert("Bride Name is required! ");
+                return false;
+            } else if (!isNaN(to_name)) {
+                alert(" A valid Name is required! ");
+                return false;
             }
-          }
 
-        if(date==""){
-               alert("Date is required! ");
-               return false;   
-       }
+            if (gname == "") {
+                alert("Groom Name is required! ");
+                return false;
+            } else if (!isNaN(gname)) {
+                alert(" A valid Name is required! ");
+                return false;
+            }
 
-        if(Package_name==""){
-               alert("Package name is required! ");
-               return false;   
-       }
+            if (time == "") {
+                alert("Time is required! ");
+                return false;
+            }
+
+            if (location == "") {
+                alert("Location is required! ");
+                return false;
+            }
+
+            if (to_email == "") {
+                alert("Email Address is required !! ");
+                return false;
+            } else {
+                var regEmail = /^([a-zA-Z0-9\._]+)@([a-zA-Z0-9])+.([a-z]+)(.[a-z]+)?$/;
+                if (!regEmail.test(to_email)) {
+                    alert("A valid Email Address is required !! ");
+                    return false;
+                }
+            }
+
+            if (date == "") {
+                alert("Date is required! ");
+                return false;
+            }
+
+            if (Package_name == "") {
+                alert("Package name is required! ");
+                return false;
+            }
 
 
 
-    return true;
-  
-}
-</script>
-  
+            return true;
+
+        }
+    </script>
+
 </head>
 
 
@@ -212,7 +209,7 @@ function validateForm() {
 
                     <div class="col-lg-6 mb-4 p-0 pt-md">
 
-                        <form method="POST" id="requestForm" name="requestForm" action="./requestForm.php" >
+                        <form method="POST" id="requestForm" name="requestForm" action="./requestForm.php">
                             <input name="form_submitted" value="sent" hidden />
 
                             <br><br>
@@ -319,8 +316,8 @@ function validateForm() {
                                 </div>
                             </div>
                         </form>
-                          <button  id="submitForm" class="btn btn-outline-dark">Submit</button>
-                            <div class="submitting"></div>
+                        <button id="submitForm" class="btn btn-outline-dark">Submit</button>
+                        <div class="submitting"></div>
 
                     </div>
 
@@ -333,7 +330,7 @@ function validateForm() {
     </main>
     <!--Main layout-->
 
-  
+
 </body>
 
 
