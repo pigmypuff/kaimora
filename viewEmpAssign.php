@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 include "config.php";
 $email = $_SESSION['email'];
 
@@ -24,7 +24,7 @@ $sql ="SELECT ea.available_date, r.Request_id, r.event_type, r.time, r.location,
 </head>
 <body>
 <div class="commonClass1" style="background-color:#7A7CA4; color: white;">
-  <header><h2 style="padding-left: 50px;">Assigned PhotoShoots</h2></header>  
+  <header><h2 style="padding-left: 50px;">Assigned Events</h2></header>  
 </div>
 
 <?php if ($result !== null) : ?>

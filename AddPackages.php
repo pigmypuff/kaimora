@@ -12,18 +12,17 @@
 
 
 <?php
-
+// Include configuration file
 include "config.php";
 
+// Check if form is submitted
    if(isset($_POST['submit'])){
       
+    // Get package name and amount from form
       $package_name = $_POST['package_name'];
-     
       $amount = $_POST['amount'];
       
-      
-     
-      //SQL QUERY
+      // SQL QUERY to insert package into database
       $sql = "INSERT INTO packages(package_name, amount) VALUES ('$package_name','$amount');";
        
       
@@ -32,6 +31,7 @@ include "config.php";
       $result =   $conn->query($sql);
       
       if($result == TRUE){
+        // If query is successful, redirect to viewPackages page
        //  echo "New record created successfully";
          header("location: ./sidebar.php?viewPackages");
          
@@ -54,7 +54,7 @@ include "config.php";
 
     <div class="commonClass" style=" border-bottom-right-radius: 20px;
     border-bottom-left-radius:20px; ">
-        
+        <!-- Form Section-->
         <form name="myForm" action="./AddPackages.php" method="POST" onsubmit="return validation()">
     
         <div class="innerDiv">
@@ -75,6 +75,7 @@ include "config.php";
         </div>
 
         </form>
+         <!-- End of Form Section-->
     </div>
         
 

@@ -88,7 +88,7 @@
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card">
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="gallery2/1.jpg" class="img-fluid" />
+                <img src="gallery3/5.jpg" class="img-fluid" />
                 <a href="#!">
                   <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>
@@ -133,7 +133,7 @@
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card">
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="gallery2/10.jpg" class="img-fluid" />
+                <img src="13.jpg" class="img-fluid" />
                 <a href="#!">
                   <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>
@@ -269,13 +269,13 @@
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card">
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="gallery2/10.jpg" class="img-fluid" />
+                <img src="11.jpg" class="img-fluid" />
                 <a href="#!">
                   <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>
               </div>
               <div class="card-body">
-                <h5 class="card-title">Wedding Package 03</h5>
+                <h5 class="card-title">Engagement Package 01</h5>
                 <p class="card-text">
                   
                 </p>
@@ -290,18 +290,15 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Wedding Package 03</h1>
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Engagement Package 01</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">Photo session with couple on desired location</li>
                     <li class="list-group-item">Full function coverage</li>
-                    <li class="list-group-item">20" x 30" enlargement with frame</li>
-                    <li class="list-group-item">100 thank you cards</li>
-                    <li class="list-group-item">12" x 30" Fine art or Magazine type photo album</li>
-                    <li class="list-group-item">Seperate family album of the function</li>
-                    <li class="list-group-item fw-semibold">LKR 125 000</li>
+                    <li class="list-group-item">26" x 24" enlargement with frame</li>
+                    <li class="list-group-item fw-semibold">LKR 25 000</li>
                   </ul>
                 </div>
                 <div class="modal-footer">

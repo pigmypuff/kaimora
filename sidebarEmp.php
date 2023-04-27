@@ -47,6 +47,15 @@
           <li><a class="link_name" href="./sidebarEmp.php?empAvailability">Availability</a></li>
         </ul>
       </li>
+      <li>
+        <a href="./sidebarEmp.php?viewEmpAssign">
+        <i class='bx bxs-user-detail'></i>
+          <span class="link_name">Asigned Events</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="./sidebarEmp.php?viewEmpAssign">Asigned Events</a></li>
+        </ul>
+      </li>
 
 
       <!-- 
@@ -98,6 +107,11 @@
 
       include("empAvailability.php");
     }
+    if (isset($_GET['viewEmpAssign'])) {
+
+      include("viewEmpAssign.php");
+    }
+
 
 
 

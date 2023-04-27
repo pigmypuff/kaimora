@@ -23,24 +23,27 @@ include "config.php";
 
     <?php
 
-    if (isset($_POST['login'])) {
-
+    if (isset($_POST['login'])) { 
+        // sanitizes and stores the user input email and password
         $email = mysqli_real_escape_string($conn, $_POST['email']);
 
         $pass = mysqli_real_escape_string($conn, $_POST['password']);
 
 
-        if ($email != "" && $pass != "") {
+        if ($email != "" && $pass != "") { // checks if both email and password are provided
 
+            // prepares and executes the SQL query to retrieve the user from the database
             $sql_query = "select * from employee where (email='$email') AND (password='$pass')";
 
 
 
             $result = mysqli_query($conn, $sql_query) or trigger_error("query failed SQL: $sql_query - Error : " . mysqli_error($conn), E_USER_ERROR);
 
-            $count = mysqli_num_rows($result);
+            $count = mysqli_num_rows($result); // gets the number of rows returned by the query
 
-            if ($count == 1) {
+
+            if ($count == 1) { // if a single user is found, logs them 
+                // retrieves the user details and sets them in the sessionin
                 $row = mysqli_fetch_assoc($result);
                 $_SESSION['email'] = $email;
                 $_SESSION["login"] = "1";
@@ -48,17 +51,20 @@ include "config.php";
                 //$_SESSION['name'] = $row['name'];
                 $_SESSION['access_level'] = $row['access_level'];
 
+                // redirects the user to the appropriate dashboard based on their access level
+            if ($_SESSION['access_level'] == "admin") {
                 if ($_SESSION['access_level'] == "admin") {
                     header("Location: sidebar.php");
                 } else {
                     header("Location: sidebarEmp.php");
                 }
                 exit();
-            } else {
+            } else {    // if the user is not found, displays an error message
                 $error_msg = "Invalid email or password!";
             }
         }
     }
+}
 
     ?>
 

@@ -37,7 +37,7 @@
           <li><a class="link_name" href="">Employee</a></li>
           <li><a href="./sidebar.php?addEmployee">Add Employee</a></li>
           <li><a href="./sidebar.php?viewEmployee">View Employee</a></li>
-          <li><a href="./sidebar.php?checkAvailability">Availability</a></li>
+        <!--   <li><a href="./sidebar.php?checkAvailability">Availability</a></li> -->
 
         </ul>
       </li>

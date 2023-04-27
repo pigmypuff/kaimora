@@ -10,11 +10,11 @@
 <body>
 
 <?php
-
+// Include the configuration file
 include "config.php";
 
    if(isset($_POST['submit'])){
-      
+      // Get values from the form submission
       $LastName = $_POST['lname'];
       $FirstName = $_POST['fname'];
       $NIC = $_POST['nic'];
@@ -25,19 +25,21 @@ include "config.php";
       $address = $_POST['address'];
       $image = $_POST['image'];
       
-      //SQL QUERY
+      // SQL query to insert data into the database
       $sql = "INSERT INTO employee(LastName, FirstName, NIC, email, DOB, JoinedDate, contact, address, image) VALUES ('$LastName','$FirstName', '$NIC','$email', '$DOB', '$JoinedDate','$contact', '$address','$image');";
        
       
       //Execute the query
       
       $result =   $conn->query($sql);
-      
+      // Check if the query was successful
       if($result == TRUE){
+        // Redirect to the employee view page
        //  echo "New record created successfully";
          header("location: ./sidebar.php?viewEmployee");
          
       }else{
+        // Redirect to the add employee page 
        //  echo "Error:". $sql. "<br>". $conn->error;
        header("location: ./sidebar.php?addEmployee");
       }     
@@ -59,7 +61,7 @@ include "config.php";
     
     <div class="commonClass" style=" border-bottom-right-radius: 20px;
     border-bottom-left-radius:20px; ">
-        
+        <!--Form Section-->
         <form name="myForm" action="./AddEmployee.php" method="POST" onsubmit="return validation()">
     
         <div class="innerDiv">
@@ -123,6 +125,7 @@ include "config.php";
         </div>
          
         </form>  
+        <!--End of Form Section-->
     </div>
 </body>
 
