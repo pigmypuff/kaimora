@@ -5,6 +5,8 @@ if (session_status() == PHP_SESSION_NONE) {
 //session_start();
 include "config.php";
 // if (isset($_SESSION['name'])) {
+
+  // Get the name and email of the logged-in user from the session
 $name = $_SESSION['name'];
 $email = $_SESSION['email'];
 // }
@@ -100,6 +102,8 @@ $result = $conn->query($sql);
                         <td><?php echo $name; ?></td>
                         <td><?php echo $row['submittedDate']; ?></td>
                         <td><?php
+
+//display the status of the request: Pending, Accepted or Declined 
                             if ($row['accepted'] == 0) {
                               echo "Pending";
                             } elseif ($row['accepted'] == 1) {

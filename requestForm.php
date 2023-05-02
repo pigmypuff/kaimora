@@ -64,9 +64,12 @@ if (isset($_POST['form_submitted'])) {
 
     <script type="text/javascript">
         window.onload = function() {
+             // attaches a click event listener to the submitForm button
             document.getElementById('submitForm').addEventListener('click', function(event) {
 
+                //checks if the form is valid
                 if (validateForm()) {
+                    // If the form is valid, it prepares data for the email service
                     var data = {
                         service_id: 'service_mm4fp0s',
                         template_id: 'template_db10v56',
@@ -77,6 +80,7 @@ if (isset($_POST['form_submitted'])) {
                         }
                     };
 
+                    // This code makes a fetch request to the email service to send the email
                     fetch('https://api.emailjs.com/api/v1.0/email/send', {
                             method: 'POST',
                             headers: {
@@ -89,6 +93,7 @@ if (isset($_POST['form_submitted'])) {
                         .then(res => {
                             console.log(res)
 
+                             // This code submits the form after a 500ms delay
                             setTimeout(() => {
                                 document.getElementById('requestForm').submit()
 
@@ -120,6 +125,7 @@ if (isset($_POST['form_submitted'])) {
     </script>
     <script>
         function validateForm() {
+            //retrieve values from input fields
             let to_name = document.forms["requestForm"]["to_name"].value;
             var gname = document.forms["requestForm"]["gname"].value;
             var time = document.forms["requestForm"]["time"].value;

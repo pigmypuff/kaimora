@@ -3,8 +3,10 @@
 //session_start();
 include "config.php";
 
+//SQL query to select all the reviews from the table
 $sql = "SELECT * FROM reviews;";
 
+//execute the query and store the result in a variable
 $result = $conn->query($sql);
 
 /*$logedInUseremail = $_SESSION['email'];
@@ -39,6 +41,7 @@ echo $logedInUseremail;*/
                 <th>Description</th>
             </tr>
         <tbody>
+        <!--iterate through the result and display each row in a table row-->
             <?php
             while ($row = $result->fetch_assoc()) {
             ?>

@@ -17,20 +17,19 @@
 
     include "config.php";
 
+    // check if the form has been submitted
     if (isset($_POST['register'])) {
 
+         // retrieve the input data from the form
         $FName = $_POST['fname'];
         $LName = $_POST['lname'];
         $email = $_POST['email'];
-
         $password = $_POST['password'];
-
         $contact = $_POST['contact'];
-       
-    $nic = $_POST['nic'];
-    $address = $_POST['address'];
-    $dob = $_POST['dob'];
-    $joinedDate = $_POST['joinedDate'];
+        $nic = $_POST['nic'];
+        $address = $_POST['address'];
+        $dob = $_POST['dob'];
+        $joinedDate = $_POST['joinedDate'];
 
 
         //SQL QUERY

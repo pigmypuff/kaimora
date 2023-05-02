@@ -12,14 +12,18 @@
 
     include "config.php";
 
+    // Check if an email was passed in the request.
     if (isset($_REQUEST['email'])) {
 
+        // Get the email from the request.
         $email = $_REQUEST['email'];
 
+        // Query the database for the employee with the given email.
         $sql = "SELECT * FROM employee WHERE email ='$email'";
 
         $result = $conn->query($sql) or die($conn->error);
 
+        // If a row is returned, set the form fields to the employee's current values.
         if ($row = $result->fetch_assoc()) {
             $LastName = $row['LastName'];
             $FirstName = $row['FirstName'];
@@ -33,8 +37,10 @@
         }
     }
 
+    // Check if the form was submitted.
     if (isset($_POST['update'])) {
 
+        // Get the values from the form fields.
         $LastName = $_POST['lname'];
         $FirstName = $_POST['fname'];
         $NIC = $_POST['nic'];
@@ -45,7 +51,7 @@
         $address = $_POST['address'];
         $image = $_POST['image'];
 
-        //query;
+        //SQL query to update the employee with the new values.
         $sql = "UPDATE employee SET FirstName = '$FirstName', LastName = '$LastName', NIC = '$NIC', email = '$email', DOB = '$DOB', JoinedDate = '$JoinedDate', contact = '$contact', address = '$address', image = '$image' WHERE email = '$email'";
 
         $result = $conn->query($sql) or die($conn->error);
