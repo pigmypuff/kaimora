@@ -2,6 +2,7 @@
 <?php 
     include "config.php";
 
+     // SQL query to retrieve all the employee records
     $sql="SELECT * FROM employee;";
 
     $result=$conn->query($sql);

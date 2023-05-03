@@ -77,10 +77,10 @@ if (isset($_POST['accept'])) {
                         <?php
                         if ($row['accepted'] == 0) {
                             echo '<form action="sidebar.php?viewRequests" method="post">
-              <input type="hidden" name="id" value="' . $row['Request_id'] . '">
-              <input type="submit" name="accept" value="Accept">
-              <input type="submit" name="decline" value="Decline">
-            </form>';
+                                    <input type="hidden" name="id" value="' . $row['Request_id'] . '">
+                                    <input type="submit" name="accept" value="Accept">
+                                    <input type="submit" name="decline" value="Decline">
+                                 </form>';
                         } else if ($row['accepted'] == 1) {
                             echo 'Accepted';
                         } else {

@@ -14,7 +14,7 @@ if (isset($_POST['assign'])) {
   // Get the row ID from the form data
   $email = $_POST['id'];
 
-  // Update the database using PDO or mysqli
+  // Update the database 
   $sqlUpdate = "UPDATE emp_availability SET assign_to='$requestId' WHERE email='$email' and available_date='$date' ";
   $result2 =   $conn->query($sqlUpdate);
 
